@@ -1,12 +1,39 @@
 #' Initiate intro.js
 #'
 #' Iniates an introduction via the intro.js library
-#'
 #' @import shiny
-#' @param session session
+#' @param session the Shiny session object (from the server function of the Shiny app)
 #' @note \code{introjsUI} must be present in UI for \code{introjs} to work.
 #'  Also requires their to be \code{introBox} in UI.
 #' @seealso \code{introBox}
+#' @examples
+#' \dontrun{
+#' library(rintrojs)
+#' library(shiny)
+#' ui <- shinyUI(fluidPage(
+#'   introjsUI(),
+#'   mainPanel(
+#'     introBox(
+#'       tableOutput("mtcars"),
+#'       data.step = 1,
+#'       data.intro = "This is the table"
+#'     ),
+#'     introBox(
+#'       actionButton("btn","Intro"),
+#'       data.step = 2,
+#'       data.intro = "This is the button"
+#'     )
+#'   )))
+#' server <- shinyServer(function(input, output, session) {
+#'   output$mtcars <- renderTable({
+#'     head(mtcars)
+#'   })
+#'   observeEvent(input$btn,
+#'                introjs(session))
+#' })
+#' # Run the application
+#' shinyApp(ui = ui, server = server)
+#' }
 #' @export
 
 introjs <- function(session) {
@@ -18,18 +45,18 @@ introjs <- function(session) {
 #' @export
 
 introjsUI <- function() {
-  tags$head(singleton(tagList(
-    includeScript(
+  shiny::tags$head(shiny::singleton(shiny::tagList(
+    shiny::includeScript(
       system.file("javascript/introjs/intro.min.js", package = "rintrojs")
     ),
-    includeCSS(
+    shiny::includeCSS(
       system.file(
         "javascript/introjs/introjs.min.css",
         package = "rintrojs"
       )
     ),
-    tags$script(
-      HTML(
+    shiny::tags$script(
+      shiny::HTML(
         "Shiny.addCustomMessageHandler('introjs',function(NULL) {
         introJs().start();
 } )"
@@ -46,7 +73,35 @@ introjsUI <- function() {
 #' @param ... Elements in introduction element
 #' @param data.step a number indicating its spot in the order in the intro
 #' @param data.intro text for introduction
-#'
+#' @seealso \code{introjs}
+#' @examples
+#' \dontrun{
+#' library(rintrojs)
+#' library(shiny)
+#' ui <- shinyUI(fluidPage(
+#'   introjsUI(),
+#'   mainPanel(
+#'     introBox(
+#'       tableOutput("mtcars"),
+#'       data.step = 1,
+#'       data.intro = "This is the table"
+#'     ),
+#'     introBox(
+#'       actionButton("btn","Intro"),
+#'       data.step = 2,
+#'       data.intro = "This is the button"
+#'     )
+#'   )))
+#' server <- shinyServer(function(input, output, session) {
+#'   output$mtcars <- renderTable({
+#'     head(mtcars)
+#'   })
+#'   observeEvent(input$btn,
+#'                introjs(session))
+#' })
+#' # Run the application
+#' shinyApp(ui = ui, server = server)
+#' }
 #' @export
 
 introBox <- function(... , data.step, data.intro) {
