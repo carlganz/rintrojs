@@ -104,15 +104,9 @@ introjsUI <- function() {
 #' }
 #' @export
 
-introBox <- function(... , data.step, data.intro) {
+introBox <- function(... ,data.step, data.intro) {
   shiny::singleton(shiny::tags$div(..., `data-step` = data.step, `data-intro` =
                                      data.intro))
 }
 
 
-# DT::datatable(mtcars,options=list(rowCallback=JS(
-#   'function(row,data,index) {
-#   row.setAttribute("data-step",index);
-#   row.setAttribute("data-intro", "This is row "+index)
-#   }'
-#   )))
