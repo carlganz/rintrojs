@@ -1,0 +1,13 @@
+Package: rintrojs
+Type: Package
+Title: rintojs: Wrapper for the intro.js library
+Version: 0.1.0
+Authors@R: c(
+  person("Carl","Ganz",email="carlganz@ucla.edu",role=c("aut","cre"))
+  )
+Description: A wrapper for the intro.js library. Allows for step-by-step
+  introductions to Shiny apps
+License: GNU
+LazyData: TRUE
+Import: shiny
+RoxygenNote: 5.0.1
