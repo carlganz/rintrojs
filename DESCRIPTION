@@ -10,4 +10,5 @@ Description: A wrapper for the intro.js library. Allows for step-by-step
 License: GNU
 LazyData: TRUE
 Import: shiny
+Depends: R (>= 3.0.0)
 RoxygenNote: 5.0.1
