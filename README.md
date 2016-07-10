@@ -84,3 +84,8 @@ server <- shinyServer(function(input, output, session) {
 # Run the application
 shinyApp(ui = ui, server = server)
 ```
+
+Contributing
+------------
+
+This is still pretty preliminary, so any and all feedback is appreciated.
