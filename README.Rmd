@@ -97,11 +97,10 @@ server <- shinyServer(function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
-<<<<<<< HEAD
 Click [here to view example.](https://carlganz.shinyapps.io/rintrojsexample/)
-=======
+
 Contributing
 ------------
 
 This is still pretty preliminary, so any and all feedback is appreciated. 
->>>>>>> eedd44241a9f222426a8768cb51e3c7c4f528655
+
