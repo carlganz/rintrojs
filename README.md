@@ -29,14 +29,14 @@ library(shiny)
 # Define UI for application that draws a histogram
 ui <- shinyUI(fluidPage(
   introjsUI(),
-
+  
   # Application title
   introBox(
     titlePanel("Old Faithful Geyser Data"),
     data.step = 1,
     data.intro = "This is the title panel"
   ),
-
+  
   # Sidebar with a slider input for number of bins
   sidebarLayout(sidebarPanel(
     introBox(
@@ -49,18 +49,20 @@ ui <- shinyUI(fluidPage(
           value = 30
         ),
         data.step = 3,
-        data.intro = "This is a slider"
+        data.intro = "This is a slider",
+        data.hint = "You can slide me"
       ),
       introBox(
         actionButton("help", "Press for instructions"),
         data.step = 4,
-        data.intro = "This is a button"
+        data.intro = "This is a button",
+        data.hint = "You can press me"
       ),
       data.step = 2,
       data.intro = "This is the sidebar. Look how intro elements can nest"
     )
   ),
-
+  
   # Show a plot of the generated distribution
   mainPanel(
     introBox(
@@ -73,20 +75,25 @@ ui <- shinyUI(fluidPage(
 
 # Define server logic required to draw a histogram
 server <- shinyServer(function(input, output, session) {
+  # initiate hints on startup
+  hintjs(session)
+  
   output$distPlot <- renderPlot({
     # generate bins based on input$bins from ui.R
     x    <- faithful[, 2]
     bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
+    
     # draw the histogram with the specified number of bins
     hist(x,
          breaks = bins,
          col = 'darkgray',
          border = 'white')
   })
-
+  
+  # start introjs when button is pressed
   observeEvent(input$help,
-               introjs(session))
+               introjs(session)
+               )
 })
 
 # Run the application
