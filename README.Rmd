@@ -12,13 +12,21 @@ The goal of `rintrojs` is to integrate the javascript library [`intro.js`](http:
 
 All credit for `intro.js` goes to its author Afshin Mehrabani. I have contributed nothing to `intro.js`. I simply wrote a wrapper for easy integration with `shiny`.
 
+Install
+-------
+
+Use `devtools` to install `rintrojs` from github.
+
+```r
+devtools::install_github("carlganz/rintrojs")
+```
+
 Usage
 -----
 
 To use `rintrojs`, you need to call `introjsUI()` once in the UI, and you need to wrap the elements you want to introduce with `introBox`. You specify the order of the introduction with the data.step parameter of `introBox`, and you specify the content of the introduction with the data.intro parameter of `introBox`. You can initiate the introduction from the server by calling `introjs(session)`.
 
 ``` r
-
 library(rintrojs)
 library(shiny)
 
@@ -89,7 +97,10 @@ server <- shinyServer(function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
+Click [here to view example.](https://carlganz.shinyapps.io/rintrojsexample/)
+
 Contributing
 ------------
 
 This is still pretty preliminary, so any and all feedback is appreciated. 
+
