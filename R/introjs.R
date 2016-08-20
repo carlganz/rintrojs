@@ -44,6 +44,14 @@ introjs <- function(session) {
 #' @rdname introjs
 #' @export
 
+hintjs <- function(session) {
+  session$sendCustomMessage(type = "hintjs", message = list(NULL))
+  
+}
+
+#' @rdname introjs
+#' @export
+
 introjsUI <- function() {
   shiny::tags$head(shiny::singleton(shiny::tagList(
     shiny::includeScript(
@@ -61,6 +69,13 @@ introjsUI <- function() {
         introJs().start();
 } )"
                 )
+    ),
+    shiny::tags$script(
+      shiny::HTML(
+        "Shiny.addCustomMessageHandler('hintjs',function(NULL) {
+          introJs().addHints();
+        })"
+      )
     )
       )))
 }
@@ -73,6 +88,7 @@ introjsUI <- function() {
 #' @param ... Elements in introduction element
 #' @param data.step a number indicating its spot in the order in the intro
 #' @param data.intro text for introduction
+#' @param data.hint text for clickable hints
 #' @seealso \code{introjs}
 #' @examples
 #' \dontrun{
@@ -104,9 +120,15 @@ introjsUI <- function() {
 #' }
 #' @export
 
-introBox <- function(... ,data.step, data.intro) {
-  shiny::singleton(shiny::tags$div(..., `data-step` = data.step, `data-intro` =
-                                     data.intro))
+introBox <- function(... ,data.step, data.intro, data.hint) {
+  
+  data <- match.call(expand.dots = TRUE)
+  n <- length(list(...)) + 1
+  names(data)[-seq_len(n)] <- gsub("\\.", "-", names(data)[-seq_len(n)])
+  data[[1]] <- quote(shiny::tags$div)
+  
+  shiny::singleton(eval(data))
+  
 }
 
 

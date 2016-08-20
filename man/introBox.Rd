@@ -4,7 +4,7 @@
 \alias{introBox}
 \title{Generate intro elements in UI}
 \usage{
-introBox(..., data.step, data.intro)
+introBox(..., data.step, data.intro, data.hint)
 }
 \arguments{
 \item{...}{Elements in introduction element}
@@ -12,6 +12,8 @@ introBox(..., data.step, data.intro)
 \item{data.step}{a number indicating its spot in the order in the intro}
 
 \item{data.intro}{text for introduction}
+
+\item{data.hint}{text for clickable hints}
 }
 \description{
 Wrap \code{introBox} around elements you want to include in introduction.
