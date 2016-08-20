@@ -10,10 +10,12 @@ introjs(session)
 
 hintjs(session)
 
-introjsUI()
+introjsUI(includeOnly = FALSE)
 }
 \arguments{
 \item{session}{the Shiny session object (from the server function of the Shiny app)}
+
+\item{includeOnly}{Only include introjs files. For users who will write their own javascript}
 }
 \description{
 Iniates an introduction via the intro.js library

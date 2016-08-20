@@ -38,7 +38,7 @@
 
 introjs <- function(session) {
   session$sendCustomMessage(type = "introjs", message = list(NULL))
-
+  
 }
 
 #' @rdname introjs
@@ -50,34 +50,54 @@ hintjs <- function(session) {
 }
 
 #' @rdname introjs
+#' @param includeOnly Only include introjs files. For users who will write their own javascript
 #' @export
 
-introjsUI <- function() {
-  shiny::tags$head(shiny::singleton(shiny::tagList(
-    shiny::includeScript(
-      system.file("javascript/introjs/intro.min.js", package = "rintrojs")
-    ),
-    shiny::includeCSS(
-      system.file(
-        "javascript/introjs/introjs.min.css",
-        package = "rintrojs"
-      )
-    ),
-    shiny::tags$script(
-      shiny::HTML(
-        "Shiny.addCustomMessageHandler('introjs',function(NULL) {
-        introJs().start();
-} )"
-                )
-    ),
-    shiny::tags$script(
-      shiny::HTML(
-        "Shiny.addCustomMessageHandler('hintjs',function(NULL) {
+introjsUI <- function(includeOnly = FALSE) {
+  if (!includeOnly) {
+    shiny::tags$head(shiny::singleton(shiny::tagList(
+      shiny::includeScript(
+        system.file("javascript/introjs/intro.min.js", package = "rintrojs")
+      ),
+      shiny::includeCSS(
+        system.file(
+          "javascript/introjs/introjs.min.css",
+          package = "rintrojs"
+        )
+      ),
+      shiny::tags$script(
+        shiny::HTML(
+          "Shiny.addCustomMessageHandler('introjs',function(NULL) {
+          introJs().start();
+  } )"
+        )
+      ),
+      shiny::tags$script(
+        shiny::HTML(
+          "Shiny.addCustomMessageHandler('hintjs',function(NULL) {
           introJs().addHints();
-        })"
+  })"
+        )
       )
     )
-      )))
+    )
+    )
+  } else {
+    shiny::tags$head(shiny::singleton(shiny::tagList(
+      shiny::includeScript(
+        system.file("javascript/introjs/intro.min.js", package = "rintrojs")
+      ),
+      shiny::includeCSS(
+        system.file(
+          "javascript/introjs/introjs.min.css",
+          package = "rintrojs"
+        )
+      )
+    )
+    )
+    )
+  }
+  
 }
 
 #' Generate intro elements in UI
