@@ -3,6 +3,7 @@
 language: R
 sudo: false
 cache: packages
+warnings_are_errors: true
 
 os:
   - linux
@@ -15,4 +16,3 @@ compiler:
 after_success:
   - Rscript -e 'covr::codecov()'
   
-warnings_are_errors: true
