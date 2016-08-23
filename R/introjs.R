@@ -141,7 +141,7 @@ introjsUI <- function(includeOnly = FALSE) {
 #' @export
 
 introBox <- function(... ,data.step, data.intro, data.hint) {
-  
+  stopifnot(!((!missing(data.step) & missing(data.intro)) | (missing(data.step) & !missing(data.intro))))
   data <- match.call(expand.dots = TRUE)
   n <- length(list(...)) + 1
   names(data)[-seq_len(n)] <- gsub("\\.", "-", names(data)[-seq_len(n)])
