@@ -3,6 +3,7 @@
 #' Iniates an introduction via the intro.js library
 #' @import shiny
 #' @param session the Shiny session object (from the server function of the Shiny app)
+#' @param options List of options to be passed to introJs. See \url{https://github.com/usablica/intro.js/wiki/Documentation}
 #' @note \code{introjsUI} must be present in UI for \code{introjs} to work.
 #'  Also requires their to be \code{introBox} in UI.
 #' @seealso \code{introBox}
@@ -36,8 +37,8 @@
 #' }
 #' @export
 
-introjs <- function(session) {
-  session$sendCustomMessage(type = "introjs", message = list(NULL))
+introjs <- function(session, options = list()) {
+  session$sendCustomMessage(type = "introjs", message = options)
   
 }
 
@@ -67,9 +68,10 @@ introjsUI <- function(includeOnly = FALSE) {
       ),
       shiny::tags$script(
         shiny::HTML(
-          "Shiny.addCustomMessageHandler('introjs',function(NULL) {
-          introJs().start();
-  } )"
+          "Shiny.addCustomMessageHandler('introjs',function(options) {
+          var tour=introJs();
+          tour.setOptions(options);
+          tour.start();})"
         )
       ),
       shiny::tags$script(

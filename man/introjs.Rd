@@ -6,7 +6,7 @@
 \alias{introjsUI}
 \title{Initiate intro.js}
 \usage{
-introjs(session)
+introjs(session, options = list())
 
 hintjs(session)
 
@@ -14,6 +14,8 @@ introjsUI(includeOnly = FALSE)
 }
 \arguments{
 \item{session}{the Shiny session object (from the server function of the Shiny app)}
+
+\item{options}{List of options to be passed to introJs. See \url{https://github.com/usablica/intro.js/wiki/Documentation}}
 
 \item{includeOnly}{Only include introjs files. For users who will write their own javascript}
 }
