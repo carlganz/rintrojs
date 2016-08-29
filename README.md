@@ -75,8 +75,9 @@ ui <- shinyUI(fluidPage(
 
 # Define server logic required to draw a histogram
 server <- shinyServer(function(input, output, session) {
-  # initiate hints on startup
-  hintjs(session)
+  # initiate hints on startup with custom button and event
+  hintjs(session, options = list("hintButtonLabel"="Hope this hint was helpful"),
+         events = list("onhintclose"='alert("Wasn\'t that hint helpful")'))
   
   output$distPlot <- renderPlot({
     # generate bins based on input$bins from ui.R
@@ -90,10 +91,13 @@ server <- shinyServer(function(input, output, session) {
          border = 'white')
   })
   
-  # start introjs when button is pressed
+  # start introjs when button is pressed with custom options and events
   observeEvent(input$help,
-               introjs(session)
-               )
+               introjs(session, options = list("nextLabel"="Onwards and Upwards",
+                                               "prevLabel"="Did you forget something?",
+                                               "skipLabel"="Don't be a quitter"),
+                                events = list("oncomplete"='alert("Glad that is over")'))
+  )
 })
 
 # Run the application
