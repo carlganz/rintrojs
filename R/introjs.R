@@ -1,3 +1,7 @@
+### rintrojs package
+### written by Carl Ganz
+### wrapper for the introjs javascript library written by Afshin Mehrabani
+
 #' Initiate intro.js
 #'
 #' Iniates an introduction via the intro.js library
@@ -55,51 +59,27 @@ hintjs <- function(session) {
 #' @export
 
 introjsUI <- function(includeOnly = FALSE) {
-  if (!includeOnly) {
-    shiny::tags$head(shiny::singleton(shiny::tagList(
-      shiny::includeScript(
-        system.file("javascript/introjs/intro.min.js", package = "rintrojs")
-      ),
-      shiny::includeCSS(
-        system.file(
-          "javascript/introjs/introjs.min.css",
-          package = "rintrojs"
-        )
-      ),
-      shiny::tags$script(
-        shiny::HTML(
-          "Shiny.addCustomMessageHandler('introjs',function(options) {
-          var tour=introJs();
-          tour.setOptions(options);
-          tour.start();})"
-        )
-      ),
-      shiny::tags$script(
-        shiny::HTML(
-          "Shiny.addCustomMessageHandler('hintjs',function(NULL) {
-          introJs().addHints();
-  })"
-        )
-      )
-    )
-    )
-    )
-  } else {
-    shiny::tags$head(shiny::singleton(shiny::tagList(
-      shiny::includeScript(
-        system.file("javascript/introjs/intro.min.js", package = "rintrojs")
-      ),
-      shiny::includeCSS(
-        system.file(
-          "javascript/introjs/introjs.min.css",
-          package = "rintrojs"
-        )
-      )
-    )
-    )
-    )
-  }
   
+  shiny::tags$head(shiny::singleton(shiny::tagList(
+    shiny::includeScript(
+      system.file("javascript/introjs/intro.min.js", package = "rintrojs")
+    ),
+    shiny::includeCSS(
+      system.file(
+        "javascript/introjs/introjs.min.css",
+        package = "rintrojs"
+      )
+    ),
+    if (!includeOnly) {
+      shiny::includeScript(
+        system.file(
+          "javascript/rintro.js", package = "rintrojs"
+        )
+      )
+    }
+  )
+  )
+  )
 }
 
 #' Generate intro elements in UI
