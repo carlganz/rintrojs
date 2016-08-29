@@ -22,7 +22,7 @@ introjsUI(includeOnly = FALSE)
 \item{includeOnly}{Only include introjs files. For users who will write their own javascript}
 }
 \description{
-Iniates an introduction via the intro.js library
+Initiates an introduction via the intro.js library
 }
 \note{
 For documentation on introJs options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.

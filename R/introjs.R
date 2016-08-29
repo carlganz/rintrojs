@@ -4,7 +4,7 @@
 
 #' Initiate intro.js
 #'
-#' Iniates an introduction via the intro.js library
+#' Initiates an introduction via the intro.js library
 #' @import shiny
 #' @param session the Shiny session object (from the server function of the Shiny app)
 #' @param options List of options to be passed to introJs
