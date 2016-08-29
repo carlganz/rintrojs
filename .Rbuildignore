@@ -2,6 +2,7 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^README\.Rmd$
+^README\.md$
 ^README-.*\.png$
 ^codecov\.yml$
-^cran-comments\.md
+^cran-comments\.md$

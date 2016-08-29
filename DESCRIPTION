@@ -1,6 +1,6 @@
 Package: rintrojs
 Type: Package
-Title: rintojs: Wrapper for the intro.js library
+Title: Wrapper for the 'intro.js' Library
 Version: 0.1
 Authors@R: c(
   person("Carl", "Ganz", email = "carlganz@ucla.edu", role = c("aut", "cre")),
