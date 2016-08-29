@@ -62,6 +62,6 @@ shinyApp(ui = ui, server = server)
 }
 }
 \seealso{
-\code{introBox}
+\code{\link{introBox}}
 }
 

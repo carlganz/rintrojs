@@ -10,7 +10,7 @@
 #' @param options List of options to be passed to introJs
 #' @param events List of text that are the body of a Javascript functions
 #' @note For documentation on introJs options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
-#' @seealso \code{introBox}
+#' @seealso \code{\link{introBox}}
 #' @examples
 #' \dontrun{
 #' library(rintrojs)
