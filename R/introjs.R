@@ -49,8 +49,8 @@ introjs <- function(session, options = list()) {
 #' @rdname introjs
 #' @export
 
-hintjs <- function(session) {
-  session$sendCustomMessage(type = "hintjs", message = list(NULL))
+hintjs <- function(session, options= list()) {
+  session$sendCustomMessage(type = "hintjs", message = options)
   
 }
 
