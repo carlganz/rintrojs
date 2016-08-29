@@ -15,9 +15,9 @@ introjsUI(includeOnly = FALSE)
 \arguments{
 \item{session}{the Shiny session object (from the server function of the Shiny app)}
 
-\item{options}{List of options to be passed to introJs. See \url{https://github.com/usablica/intro.js/wiki/Documentation}}
+\item{options}{List of options to be passed to introJs}
 
-\item{events}{List of text that are evaluated as javascript in the body of introJs events.}
+\item{events}{List of text that are the body of a Javascript functions}
 
 \item{includeOnly}{Only include introjs files. For users who will write their own javascript}
 }
@@ -25,8 +25,7 @@ introjsUI(includeOnly = FALSE)
 Iniates an introduction via the intro.js library
 }
 \note{
-\code{introjsUI} must be present in UI for \code{introjs} to work.
- Also requires their to be \code{introBox} in UI.
+For documentation on introJs options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
 }
 \examples{
 \dontrun{
@@ -43,15 +42,20 @@ ui <- shinyUI(fluidPage(
     introBox(
       actionButton("btn","Intro"),
       data.step = 2,
-      data.intro = "This is the button"
+      data.intro = "This is the button",
+      data.hint = "Here is clue"
     )
   )))
 server <- shinyServer(function(input, output, session) {
+
+ hintjs(session, options = list("hintButtonLabel"="That was a hint"))
+
   output$mtcars <- renderTable({
     head(mtcars)
   })
   observeEvent(input$btn,
-               introjs(session))
+               introjs(session, options = list("nextLabel"="Onwards and Upwards"),
+                                events = list("oncomplete"='alert("It is over")')))
 })
 # Run the application
 shinyApp(ui = ui, server = server)
