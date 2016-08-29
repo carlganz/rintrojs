@@ -8,6 +8,7 @@
 #' @import shiny
 #' @param session the Shiny session object (from the server function of the Shiny app)
 #' @param options List of options to be passed to introJs. See \url{https://github.com/usablica/intro.js/wiki/Documentation}
+#' @param events List of text that are evaluated as javascript in the body of introJs events.
 #' @note \code{introjsUI} must be present in UI for \code{introjs} to work.
 #'  Also requires their to be \code{introBox} in UI.
 #' @seealso \code{introBox}
@@ -41,7 +42,8 @@
 #' }
 #' @export
 
-introjs <- function(session, options = list()) {
+introjs <- function(session, options = list(), events = list()) {
+  options <- list(options = options, events = events)
   session$sendCustomMessage(type = "introjs", message = options)
   
 }
@@ -49,7 +51,8 @@ introjs <- function(session, options = list()) {
 #' @rdname introjs
 #' @export
 
-hintjs <- function(session, options= list()) {
+hintjs <- function(session, options= list(), events = list()) {
+  options <- list(options = options, events = events)
   session$sendCustomMessage(type = "hintjs", message = options)
   
 }
