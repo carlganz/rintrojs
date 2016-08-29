@@ -1,3 +1,7 @@
+// rintrojs package
+// written by Carl Ganz
+// wrapper for the introjs javascript library written by Afshin Mehrabani
+
 Shiny.addCustomMessageHandler('introjs',function(options) {
   introJs().setOptions(options.options).oncomplete(function() {
     options.events.hasOwnProperty("oncomplete") && eval(options.events.oncomplete);
