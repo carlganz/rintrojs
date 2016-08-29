@@ -7,7 +7,7 @@ Authors@R: c(
   person("Afshin", "Mehrabani", role = c("ctb","cph"), comment = "intro.js in javascript/introjs")
   )
 Description: A wrapper for the intro.js library. Allows for step-by-step
-  introductions to Shiny apps.
+  introductions to Shiny apps, as well as hints.
 License: GPL-3
 LazyData: TRUE
 Imports: shiny
