@@ -48,7 +48,7 @@
 
 introjs <- function(session, options = list(), events = list()) {
   options <- list(options = options, events = events)
-  session$sendCustomMessage(type = "introjs", message = options)
+  session$sendCustomMessage(type = "introjs", message = jsonlite::toJSON(options))
   
 }
 
@@ -57,7 +57,7 @@ introjs <- function(session, options = list(), events = list()) {
 
 hintjs <- function(session, options= list(), events = list()) {
   options <- list(options = options, events = events)
-  session$sendCustomMessage(type = "hintjs", message = options)
+  session$sendCustomMessage(type = "hintjs", message = jsonlite::toJSON(options))
   
 }
 
