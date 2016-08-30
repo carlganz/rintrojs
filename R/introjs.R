@@ -6,6 +6,7 @@
 #'
 #' Initiates an introduction via the intro.js library
 #' @import shiny
+#' @importFrom jsonlite toJSON
 #' @param session the Shiny session object (from the server function of the Shiny app)
 #' @param options List of options to be passed to introJs
 #' @param events List of text that are the body of a Javascript functions
