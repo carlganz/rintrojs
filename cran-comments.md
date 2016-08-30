@@ -1,4 +1,4 @@
-# First submission
+# First resubmission
 
 ## Test environments
 
@@ -11,3 +11,7 @@ Ubuntu 12.04, R 3.3.1 (on Travis CI)
 ## R CMD Check
 
 0 errors | 0 warnings | 0 notes
+
+## Changes
+
+Added single quotes in description file around 'intro.js' and 'Shiny'
