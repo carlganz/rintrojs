@@ -7,8 +7,9 @@ Authors@R: c(
   person("Afshin", "Mehrabani", role = c("ctb","cph"), comment = "intro.js in javascript/introjs")
   )
 Description: A wrapper for the 'intro.js' library (For more info: <http://www.introjs.com>). 
-  It makes it easy to include step-by=step introductions, and clickable hints in a 'Shiny' application. It 
-  supports both static introductions in the UI, and programmatic introductions from the server-side. 
+  This package makes it easy to include step-by=step introductions, and clickable hints in a 'Shiny' 
+  application. It supports both static introductions in the UI, and programmatic introductions from 
+  the server-side. 
 License: GPL-3
 LazyData: TRUE
 Imports: shiny
