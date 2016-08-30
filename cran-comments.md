@@ -1,4 +1,4 @@
-# First resubmission
+# Second resubmission
 
 ## Test environments
 
@@ -15,3 +15,9 @@ Ubuntu 12.04, R 3.3.1 (on Travis CI)
 ## Changes
 
 Added single quotes in description file around 'intro.js' and 'Shiny'
+
+## Changes round 2
+
+Expanded description, and included link to 'intro.js'
+
+Thank you for your time
