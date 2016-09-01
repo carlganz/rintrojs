@@ -20,4 +20,6 @@ Added single quotes in description file around 'intro.js' and 'Shiny'
 
 Expanded description, and included link to 'intro.js'
 
+Changed email address because UCLA email won't work evidently
+
 Thank you for your time
