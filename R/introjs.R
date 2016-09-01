@@ -9,7 +9,7 @@
 #' @importFrom jsonlite toJSON
 #' @param session the Shiny session object (from the server function of the Shiny app)
 #' @param options List of options to be passed to introJs
-#' @param events List of text that are the body of a Javascript functions
+#' @param events List of text that are the body of a Javascript function
 #' @note For documentation on introJs options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
 #' @seealso \code{\link{introBox}}
 #' @examples

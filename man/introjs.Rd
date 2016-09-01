@@ -17,7 +17,7 @@ introjsUI(includeOnly = FALSE)
 
 \item{options}{List of options to be passed to introJs}
 
-\item{events}{List of text that are the body of a Javascript functions}
+\item{events}{List of text that are the body of a Javascript function}
 
 \item{includeOnly}{Only include introjs files. For users who will write their own javascript}
 }
