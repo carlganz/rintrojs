@@ -15,7 +15,13 @@ All credit for `intro.js` goes to its author Afshin Mehrabani. I have contribute
 Install
 -------
 
-Use `devtools` to install `rintrojs` from github.
+`rintrojs` is available on CRAN:
+
+```r
+install.packages("rintrojs")
+```
+
+To access the bleeding-edge version, use `devtools` to install `rintrojs` from github:
 
 ```r
 devtools::install_github("carlganz/rintrojs")
@@ -24,7 +30,9 @@ devtools::install_github("carlganz/rintrojs")
 Usage
 -----
 
-To use `rintrojs`, you need to call `introjsUI()` once in the UI, and you need to wrap the elements you want to introduce with `introBox`. You specify the order of the introduction with the data.step parameter of `introBox`, and you specify the content of the introduction with the data.intro parameter of `introBox`. You can initiate the introduction from the server by calling `introjs(session)`.
+To use `rintrojs`, you need to call `introjsUI()` once in the UI. `rintrojs` supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with `introBox`, or dynamically generate your introduction using the `steps` option (see [the intro.js documentaion](https://github.com/usablica/intro.js/wiki/Documentation). You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling `introjs(session)`. You can also specify options, and pass text as the body of javascript events associated with `intro.js`.
+
+Here is an example with a static introduction, but with options, and events used. 
 
 ``` r
 library(rintrojs)
@@ -108,10 +116,41 @@ server <- shinyServer(function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
+You can also generate introductions dynamically.
+
+``` r
+library(shiny)
+library(rintrojs)
+
+ui <- shinyUI(fluidPage(
+      introjsUI(),
+      mainPanel(
+        textInput("intro","Enter an introduction"),
+         actionButton("btn","Press me")
+      )
+   )
+)
+
+server <- shinyServer(function(input, output, session) {
+   
+  steps <- reactive(data.frame(element = c(NA,"btn"),
+                               intro = c(input$intro,"This is a button")))
+  
+  observeEvent(input$btn,{
+    introjs(session,options = list(steps=steps()))
+    
+  })
+  
+})
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+```
+
 Click [here to view example.](https://carlganz.shinyapps.io/rintrojsexample/)
 
 Contributing
 ------------
 
-This is still pretty preliminary, so any and all feedback is appreciated. 
+All feedback is appreciated. 
 
