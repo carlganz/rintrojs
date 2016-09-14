@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Home. rintrojs 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="index.html">rintrojs 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reference.html">Reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <div class="row">
+  <div class="span8">
+    <p><a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active."/></a> <a href="https://travis-ci.org/carlganz/rintrojs"><img src="https://travis-ci.org/carlganz/rintrojs.svg?branch=master" alt="Build Status"/></a><a href="https://codecov.io/github/carlganz/rintrojs?branch=master"><img src="https://img.shields.io/codecov/c/github/carlganz/rintrojs/master.svg" alt="Coverage Status"/></a><a href="https://ci.appveyor.com/project/carlganz/rintrojs"><img src="https://ci.appveyor.com/api/projects/status/github/carlganz/rintrojs?branch=master&amp;svg=true" alt="AppVeyor Build Status"/></a><a href="https://cran.r-project.org/package=rintrojs"><img src="http://www.r-pkg.org/badges/version/rintrojs" alt="CRAN\_Status\_Badge"/></a><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/licence-GPL--3-blue.svg" alt="Licence"/></a><a href="https://cran.r-project.org/"><img src="https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg" alt="minimal R version"/></a></p>
+
+<h1>rintrojs</h1>
+
+<p>The goal of <code>rintrojs</code> is to integrate the javascript library <a href="http://introjs.com/"><code>Intro.js</code></a> into <code>shiny</code>.</p>
+
+<p>All credit for <code>Intro.js</code> goes to its author Afshin Mehrabani. I have contributed nothing to <code>Intro.js</code>. I simply wrote a wrapper for easy integration with <code>shiny</code>.</p>
+
+<h2>Install</h2>
+
+<p><code>rintrojs</code> is available on CRAN:</p>
+
+<pre><code class="r">install.packages(&quot;rintrojs&quot;)
+</code></pre>
+
+<p>To access the bleeding-edge version, use <code>devtools</code> to install <code>rintrojs</code> from github:</p>
+
+<pre><code class="r">devtools::install_github(&quot;carlganz/rintrojs&quot;)
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>To use <code>rintrojs</code>, you need to call <code>introjsUI()</code> once in the UI. <code>rintrojs</code> supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with <code>introBox</code>, or dynamically generate your introduction using the <code>steps</code> option (see <a href="https://github.com/usablica/intro.js/wiki/Documentation">the Intro.js documentaion</a>. You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling <code>introjs(session)</code>. You can also specify options, and pass text as the body of javascript events associated with <code>Intro.js</code>.</p>
+
+<p>Here is an example with a static introduction, but with options, and events used.</p>
+
+<pre><code class="r">library(rintrojs)
+library(shiny)
+
+# Define UI for application that draws a histogram
+ui &lt;- shinyUI(fluidPage(
+  introjsUI(),
+
+  # Application title
+  introBox(
+    titlePanel(&quot;Old Faithful Geyser Data&quot;),
+    data.step = 1,
+    data.intro = &quot;This is the title panel&quot;
+  ),
+
+  # Sidebar with a slider input for number of bins
+  sidebarLayout(sidebarPanel(
+    introBox(
+      introBox(
+        sliderInput(
+          &quot;bins&quot;,
+          &quot;Number of bins:&quot;,
+          min = 1,
+          max = 50,
+          value = 30
+        ),
+        data.step = 3,
+        data.intro = &quot;This is a slider&quot;,
+        data.hint = &quot;You can slide me&quot;
+      ),
+      introBox(
+        actionButton(&quot;help&quot;, &quot;Press for instructions&quot;),
+        data.step = 4,
+        data.intro = &quot;This is a button&quot;,
+        data.hint = &quot;You can press me&quot;
+      ),
+      data.step = 2,
+      data.intro = &quot;This is the sidebar. Look how intro elements can nest&quot;
+    )
+  ),
+
+  # Show a plot of the generated distribution
+  mainPanel(
+    introBox(
+      plotOutput(&quot;distPlot&quot;),
+      data.step = 5,
+      data.intro = &quot;This is the main plot&quot;
+    )
+  ))
+))
+
+# Define server logic required to draw a histogram
+server &lt;- shinyServer(function(input, output, session) {
+  # initiate hints on startup with custom button and event
+  hintjs(session, options = list(&quot;hintButtonLabel&quot;=&quot;Hope this hint was helpful&quot;),
+         events = list(&quot;onhintclose&quot;=&#39;alert(&quot;Wasn\&#39;t that hint helpful&quot;)&#39;))
+
+  output$distPlot &lt;- renderPlot({
+    # generate bins based on input$bins from ui.R
+    x    &lt;- faithful[, 2]
+    bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)
+
+    # draw the histogram with the specified number of bins
+    hist(x,
+         breaks = bins,
+         col = &#39;darkgray&#39;,
+         border = &#39;white&#39;)
+  })
+
+  # start introjs when button is pressed with custom options and events
+  observeEvent(input$help,
+               introjs(session, options = list(&quot;nextLabel&quot;=&quot;Onwards and Upwards&quot;,
+                                               &quot;prevLabel&quot;=&quot;Did you forget something?&quot;,
+                                               &quot;skipLabel&quot;=&quot;Don&#39;t be a quitter&quot;),
+                                events = list(&quot;oncomplete&quot;=&#39;alert(&quot;Glad that is over&quot;)&#39;))
+  )
+})
+
+# Run the application
+shinyApp(ui = ui, server = server)
+</code></pre>
+
+<p>You can also generate introductions dynamically.</p>
+
+<pre><code class="r">library(shiny)
+library(rintrojs)
+
+ui &lt;- shinyUI(fluidPage(
+      introjsUI(),
+      mainPanel(
+        textInput(&quot;intro&quot;,&quot;Enter an introduction&quot;),
+         actionButton(&quot;btn&quot;,&quot;Press me&quot;)
+      )
+   )
+)
+
+server &lt;- shinyServer(function(input, output, session) {
+
+  steps &lt;- reactive(data.frame(element = c(NA,&quot;btn&quot;),
+                               intro = c(input$intro,&quot;This is a button&quot;)))
+
+  observeEvent(input$btn,{
+    introjs(session,options = list(steps=steps()))
+
+  })
+
+})
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+</code></pre>
+
+<p>Click <a href="https://carlganz.shinyapps.io/rintrojsexample/">here to view example.</a></p>
+
+<h2>Contributing</h2>
+
+<p>All feedback is appreciated.</p>
+
+  </div>
+
+  <div class="span3 offset1 sidebar">
+        <h2>Authors</h2>
+    <ul>
+      <li><a href='mailto:carlganz@gmail.com'>Carl Ganz</a> [aut, cre]</li>
+      <li>Afshin Mehrabani [ctb, cph]</li>
+    </ul>
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="https://getbootstrap.com/2.0.4/">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
