@@ -30,7 +30,7 @@ devtools::install_github("carlganz/rintrojs")
 Usage
 -----
 
-To use `rintrojs`, you need to call `introjsUI()` once in the UI. `rintrojs` supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with `introBox`, or dynamically generate your introduction using the `steps` option (see [the Intro.js documentaion](https://github.com/usablica/intro.js/wiki/Documentation). You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling `introjs(session)`. You can also specify options, and pass text as the body of javascript events associated with `Intro.js`.
+To use `rintrojs`, you need to call `introjsUI()` once in the UI. `rintrojs` supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with `introBox`, or dynamically generate your introduction using the `steps` option (see [the Intro.js documentaion](https://github.com/usablica/intro.js/wiki/Documentation)). You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling `introjs(session)`. You can also specify options, and pass text as the body of javascript events associated with `Intro.js`.
 
 Here is an example with a static introduction, but with options, and events used. 
 
