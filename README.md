@@ -4,9 +4,9 @@
 rintrojs
 ========
 
-The goal of `rintrojs` is to integrate the javascript library [`intro.js`](http://introjs.com/) into `shiny`.
+The goal of `rintrojs` is to integrate the javascript library [`Intro.js`](http://introjs.com/) into `shiny`.
 
-All credit for `intro.js` goes to its author Afshin Mehrabani. I have contributed nothing to `intro.js`. I simply wrote a wrapper for easy integration with `shiny`.
+All credit for `Intro.js` goes to its author Afshin Mehrabani. I have contributed nothing to `Intro.js`. I simply wrote a wrapper for easy integration with `shiny`.
 
 Install
 -------
@@ -26,7 +26,7 @@ devtools::install_github("carlganz/rintrojs")
 Usage
 -----
 
-To use `rintrojs`, you need to call `introjsUI()` once in the UI. `rintrojs` supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with `introBox`, or dynamically generate your introduction using the `steps` option (see [the intro.js documentaion](https://github.com/usablica/intro.js/wiki/Documentation). You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling `introjs(session)`. You can also specify options, and pass text as the body of javascript events associated with `intro.js`.
+To use `rintrojs`, you need to call `introjsUI()` once in the UI. `rintrojs` supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with `introBox`, or dynamically generate your introduction using the `steps` option (see [the Intro.js documentaion](https://github.com/usablica/intro.js/wiki/Documentation). You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling `introjs(session)`. You can also specify options, and pass text as the body of javascript events associated with `Intro.js`.
 
 Here is an example with a static introduction, but with options, and events used.
 

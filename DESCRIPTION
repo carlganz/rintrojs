@@ -1,12 +1,12 @@
 Package: rintrojs
 Type: Package
-Title: Wrapper for the 'intro.js' Library
+Title: Wrapper for the 'Intro.js' Library
 Version: 0.1.0
 Authors@R: c(
   person("Carl", "Ganz", email = "carlganz@gmail.com", role = c("aut", "cre")),
   person("Afshin", "Mehrabani", role = c("ctb","cph"), comment = "intro.js in javascript/introjs")
   )
-Description: A wrapper for the 'intro.js' library (For more info: <http://www.introjs.com>). 
+Description: A wrapper for the 'Intro.js' library (For more info: <http://www.introjs.com>). 
   This package makes it easy to include step-by-step introductions, and clickable hints in a 'Shiny' 
   application. It supports both static introductions in the UI, and programmatic introductions from 
   the server-side. 
