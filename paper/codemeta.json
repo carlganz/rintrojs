@@ -1,0 +1,23 @@
+{
+  "@context": "https://raw.githubusercontent.com/mbjones/codemeta/master/codemeta.jsonld",
+  "@type": "Code",
+  "author": [
+    {
+      "@id": "http://orcid.org/0000-0002-2973-3545",
+      "@type": "Person",
+      "email": "carlganz@gmail.com",
+      "name": "Carl Ganz",
+      "affiliation": "UCLA Center for Health Policy Research"
+    }
+  ],
+  "identifier": "",
+  "codeRepository": "https://github.com/carlganz/rintrojs",
+  "datePublished": "2016-09-13",
+  "dateModified": "2016-09-13",
+  "dateCreated": "2016-09-13",
+  "description": "A wrapper for the Intro.js library",
+  "keywords": "R, Shiny, JavaScript",
+  "license": "GPL-3",
+  "title": "rintrojs",
+  "version": "v0.1.0"
+}

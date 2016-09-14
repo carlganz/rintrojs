@@ -5,3 +5,4 @@
 ^README-.*\.png$
 ^codecov\.yml$
 ^cran-comments\.md$
+^paper
