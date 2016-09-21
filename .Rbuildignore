@@ -8,3 +8,4 @@
 ^paper
 ^appveyor\.yml$
 ^docs
+^License
