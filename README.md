@@ -148,4 +148,6 @@ Click [here to view example.](https://carlganz.shinyapps.io/rintrojsexample/)
 Contributing
 ------------
 
-All feedback is appreciated.
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+If you find any problems or have any questions, please feel free to file an issue.
