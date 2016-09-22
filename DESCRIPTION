@@ -10,7 +10,7 @@ Description: A wrapper for the 'Intro.js' library (For more info: <http://www.in
   This package makes it easy to include step-by-step introductions, and clickable hints in a 'Shiny' 
   application. It supports both static introductions in the UI, and programmatic introductions from 
   the server-side. 
-License: GPL-3
+License: AGPL-3
 LazyData: TRUE
 Imports: shiny, jsonlite
 Depends: R (>= 3.0.0)
