@@ -5,18 +5,23 @@ sudo: false
 cache: packages
 warnings_are_errors: true
 
-r:
-  - oldrel
-  - release
-  - devel
-
-os:
-  - linux
-  - osx
-
-compiler:
-  - gcc
-  - clang
+matrix:
+  include:
+    - os: linux
+      r: oldrel
+      compiler: gcc
+    - os: linux
+      r: release
+      compiler: gcc
+    - os: linux
+      r: devel
+      compiler: gcc
+    - os: osx
+      r: oldrel
+      compiler: clang
+    - os: osx
+      r: release
+      compiler: clang
   
 after_success:
   - Rscript -e 'covr::codecov()'
