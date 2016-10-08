@@ -1,3 +1,4 @@
+context("Test server side introduction")
 library(shinytest)
 
 app <- shinytest::shinyapp$new("apps/app1")
