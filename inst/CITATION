@@ -1,0 +1,19 @@
+citHeader("To cite rintrojs in publications use:")
+
+citEntry(entry = "Article",
+  title        = "{rintrojs}: A Wrapper for the Intro.js Library",
+  author       = personList(as.person("Carl Ganz")),
+  journal      = "Journal of Open Source Software",
+  publisher    = "The Open Journal",
+  year         = "2016",
+  volume       = "1",
+  issue        = "6",
+  month        = "October",
+  url          = "http://dx.doi.org/10.21105/joss.00063",
+
+  textVersion  =
+  paste("Carl Ganz (2016).",
+        "rintrojs: A Wrapper for the Intro.js Library.",
+        "Journal of Open Source Software, 1(6), October 2016.",
+        "URL http://dx.doi.org/10.21105/joss.00063")
+)
