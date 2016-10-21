@@ -1,3 +1,7 @@
+# rintrojs 0.1.1.900
+
+* Fix modules issue (Thanks @thercast and @klmr [#15](https://github.com/carlganz/rintrojs/issues/15))
+
 # rintrojs 0.1.1
 
 * Fix events bug ([#7](https://github.com/carlganz/rintrojs/issues/7))
