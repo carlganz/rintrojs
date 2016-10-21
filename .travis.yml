@@ -5,11 +5,11 @@ sudo: false
 cache: packages
 warnings_are_errors: true
 
-r_github_packages:
-  - gaborcsardi/debugme
-  - MangoTheCat/processx
-  - MangoTheCat/webdriver
-  - MangoTheCat/shinytest
+#r_github_packages:
+#  - gaborcsardi/debugme
+#  - MangoTheCat/processx
+#  - MangoTheCat/webdriver
+#  - MangoTheCat/shinytest
 
 matrix:
   include:
