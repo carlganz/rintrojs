@@ -12,6 +12,30 @@ install:
 
 # Adapt as necessary starting from here
 
+environment:
+  global:
+    WARNINGS_ARE_ERRORS: 1
+
+  matrix:
+  - R_VERSION: devel
+    GCC_PATH: mingw_32
+
+  - R_VERSION: devel
+    R_ARCH: x64
+    GCC_PATH: mingw_64
+
+  - R_VERSION: release
+    R_ARCH: x64
+
+  - R_VERSION: stable
+
+  - R_VERSION: patched
+
+  - R_VERSION: oldrel
+    RTOOLS_VERSION: 32
+    CRAN: http://cran.rstudio.com
+
+
 build_script:
   - travis-tool.sh install_deps
 
@@ -40,3 +64,13 @@ artifacts:
 
   - path: '\*_*.zip'
     name: Bits
+    
+notifications:
+ - provider: Email
+   to:
+     - carlganz@gmail.com
+   subject: 'r-appveyor build {{status}}'                  # optional
+   message: "https://ci.appveyor.com/project/carlganz/rintrojs"    # optional
+   on_build_success: false
+   on_build_failure: true
+   on_build_status_changed: true
