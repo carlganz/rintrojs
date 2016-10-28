@@ -3,29 +3,24 @@
 \name{introjs}
 \alias{hintjs}
 \alias{introjs}
-\alias{introjsUI}
 \title{Initiate intro.js}
 \usage{
 introjs(session, options = list(), events = list())
 
 hintjs(session, options = list(), events = list())
-
-introjsUI(includeOnly = FALSE)
 }
 \arguments{
 \item{session}{the Shiny session object (from the server function of the Shiny app)}
 
-\item{options}{List of options to be passed to introJs}
+\item{options}{List of options to be passed to intro.js}
 
 \item{events}{List of text that are the body of a Javascript function}
-
-\item{includeOnly}{Only include introjs files. For users who will write their own javascript}
 }
 \description{
 Initiates an introduction via the intro.js library
 }
 \note{
-For documentation on introJs options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
+For documentation on intro.js options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
 }
 \examples{
 \dontrun{
@@ -62,6 +57,6 @@ shinyApp(ui = ui, server = server)
 }
 }
 \seealso{
-\code{\link{introBox}}
+\code{\link{introjsUI}} \code{\link{introBox}}
 }
 

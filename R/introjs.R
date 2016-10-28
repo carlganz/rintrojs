@@ -21,10 +21,10 @@
 #' @import shiny
 #' @importFrom jsonlite toJSON
 #' @param session the Shiny session object (from the server function of the Shiny app)
-#' @param options List of options to be passed to introJs
+#' @param options List of options to be passed to intro.js
 #' @param events List of text that are the body of a Javascript function
-#' @note For documentation on introJs options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
-#' @seealso \code{\link{introBox}}
+#' @note For documentation on intro.js options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
+#' @seealso \code{\link{introjsUI}} \code{\link{introBox}}
 #' @examples
 #' \dontrun{
 #' library(rintrojs)
@@ -75,9 +75,32 @@ hintjs <- function(session, options= list(), events = list()) {
   
 }
 
-#' @rdname introjs
-#' @param includeOnly Only include introjs files. For users who will write their own javascript
+#' Set up Shiny app to use intro.js
+#' 
+#' This function must be called from a Shiny app's UI in order
+#' to use the package.
+#' 
+#' @param includeOnly Only include intro.js files. For users who will write their own javascript
 #' @export
+#' @examples 
+#' \dontrun{
+#' library(rintrojs)
+#' library(shiny)
+#' 
+#' shinyApp(
+#' ui = fluidPage(
+#'   introjsUI(),
+#'   actionButton("btn", "Click me")
+#' ),
+#' server = function(input, output, session) {
+#'   observeEvent(input$btn, {
+#'     intro <- data.frame(element="#btn",
+#'                         intro="In Codd we trust")
+#'     introjs(session, options = list(steps= intro))
+#'   })
+#' }
+#' )
+#' }
 
 introjsUI <- function(includeOnly = FALSE) {
   
@@ -112,7 +135,7 @@ introjsUI <- function(includeOnly = FALSE) {
 #' @param data.step a number indicating its spot in the order in the intro
 #' @param data.intro text for introduction
 #' @param data.hint text for clickable hints
-#' @seealso \code{introjs}
+#' @seealso \code{\link{introjsUI}} \code{\link{introjs}}
 #' @examples
 #' \dontrun{
 #' library(rintrojs)
