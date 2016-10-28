@@ -27,7 +27,7 @@ For documentation on intro.js options and events, see \url{https://github.com/us
 library(rintrojs)
 library(shiny)
 ui <- shinyUI(fluidPage(
-  introjsUI(),
+  introjsUI(), # must include in UI
   mainPanel(
     introBox(
       tableOutput("mtcars"),

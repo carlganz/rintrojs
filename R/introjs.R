@@ -30,7 +30,7 @@
 #' library(rintrojs)
 #' library(shiny)
 #' ui <- shinyUI(fluidPage(
-#'   introjsUI(),
+#'   introjsUI(), # must include in UI
 #'   mainPanel(
 #'     introBox(
 #'       tableOutput("mtcars"),
@@ -89,7 +89,7 @@ hintjs <- function(session, options= list(), events = list()) {
 #' 
 #' shinyApp(
 #' ui = fluidPage(
-#'   introjsUI(),
+#'   introjsUI(), # must include in UI
 #'   actionButton("btn", "Click me")
 #' ),
 #' server = function(input, output, session) {
@@ -141,7 +141,7 @@ introjsUI <- function(includeOnly = FALSE) {
 #' library(rintrojs)
 #' library(shiny)
 #' ui <- shinyUI(fluidPage(
-#'   introjsUI(),
+#'   introjsUI(), # must include in UI
 #'   mainPanel(
 #'     introBox(
 #'       tableOutput("mtcars"),

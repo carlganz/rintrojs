@@ -20,7 +20,7 @@ library(shiny)
 
 shinyApp(
 ui = fluidPage(
-  introjsUI(),
+  introjsUI(), # must include in UI
   actionButton("btn", "Click me")
 ),
 server = function(input, output, session) {
