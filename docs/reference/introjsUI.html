@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Initiate intro.js — introjs • rintrojs</title>
+<title>Set up Shiny app to use intro.js — introjsUI • rintrojs</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -74,34 +74,21 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Initiate intro.js</h1>
+    <h1>Set up Shiny app to use intro.js</h1>
     </div>
 
     
-    <p>Initiates an introduction via the intro.js library</p>
+    <p>This function must be called from a Shiny app&#39;s UI in order
+to use the package.</p>
     
 
-    <pre><span class='fu'>introjs</span>(<span class='no'>session</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>events</span> <span class='kw'>=</span> <span class='fu'>list</span>())
-
-<span class='fu'>hintjs</span>(<span class='no'>session</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'>list</span>(), <span class='kw'>events</span> <span class='kw'>=</span> <span class='fu'>list</span>())</pre>
+    <pre><span class='fu'>introjsUI</span>(<span class='kw'>includeOnly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
-      <dt>session</dt>
-      <dd>the Shiny session object (from the server function of the Shiny app)</dd>
-      <dt>options</dt>
-      <dd>List of options to be passed to intro.js</dd>
-      <dt>events</dt>
-      <dd>List of text that are the body of a Javascript function</dd>
+      <dt>includeOnly</dt>
+      <dd>Only include intro.js files. For users who will write their own javascript</dd>
     </dl>
-    
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p>For documentation on intro.js options and events, see <a href = 'https://github.com/usablica/intro.js/wiki/Documentation'>https://github.com/usablica/intro.js/wiki/Documentation</a>.</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <p><code><a href='introjsUI.html'>introjsUI</a></code> <code><a href='introBox.html'>introBox</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples">
@@ -111,45 +98,27 @@
     <pre class="examples"><div class='input'><span class='co'>## Not run: ------------------------------------</span>
 <span class='co'># library(rintrojs)</span>
 <span class='co'># library(shiny)</span>
-<span class='co'># ui &lt;- shinyUI(fluidPage(</span>
+<span class='co'># </span>
+<span class='co'># shinyApp(</span>
+<span class='co'># ui = fluidPage(</span>
 <span class='co'>#   introjsUI(), # must include in UI</span>
-<span class='co'>#   mainPanel(</span>
-<span class='co'>#     introBox(</span>
-<span class='co'>#       tableOutput("mtcars"),</span>
-<span class='co'>#       data.step = 1,</span>
-<span class='co'>#       data.intro = "This is the table"</span>
-<span class='co'>#     ),</span>
-<span class='co'>#     introBox(</span>
-<span class='co'>#       actionButton("btn","Intro"),</span>
-<span class='co'>#       data.step = 2,</span>
-<span class='co'>#       data.intro = "This is the button",</span>
-<span class='co'>#       data.hint = "Here is clue"</span>
-<span class='co'>#     )</span>
-<span class='co'>#   )))</span>
-<span class='co'># server &lt;- shinyServer(function(input, output, session) {</span>
-<span class='co'># </span>
-<span class='co'>#  hintjs(session, options = list("hintButtonLabel"="That was a hint"))</span>
-<span class='co'># </span>
-<span class='co'>#   output$mtcars &lt;- renderTable({</span>
-<span class='co'>#     head(mtcars)</span>
+<span class='co'>#   actionButton("btn", "Click me")</span>
+<span class='co'># ),</span>
+<span class='co'># server = function(input, output, session) {</span>
+<span class='co'>#   observeEvent(input$btn, {</span>
+<span class='co'>#     intro &lt;- data.frame(element="#btn",</span>
+<span class='co'>#                         intro="In Codd we trust")</span>
+<span class='co'>#     introjs(session, options = list(steps= intro))</span>
 <span class='co'>#   })</span>
-<span class='co'>#   observeEvent(input$btn,</span>
-<span class='co'>#                introjs(session, options = list("nextLabel"="Onwards and Upwards"),</span>
-<span class='co'>#                                 events = list("oncomplete"='alert("It is over")')))</span>
-<span class='co'># })</span>
-<span class='co'># # Run the application</span>
-<span class='co'># shinyApp(ui = ui, server = server)</span>
+<span class='co'># }</span>
+<span class='co'># )</span>
 <span class='co'>## ---------------------------------------------</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#note">Note</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 

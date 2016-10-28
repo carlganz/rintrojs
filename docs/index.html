@@ -53,14 +53,14 @@
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor"><a href="#usage" class="anchor"> </a>Usage</h2>
-<p>To use <code>rintrojs</code>, you need to call <code><a href="reference/introjs.html">introjsUI()</a></code> once in the UI. <code>rintrojs</code> supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with <code>introBox</code>, or dynamically generate your introduction using the <code>steps</code> option (see <a href="https://github.com/usablica/intro.js/wiki/Documentation">the Intro.js documentaion</a>). You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling <code><a href="reference/introjs.html">introjs(session)</a></code>. You can also specify options, and pass text as the body of javascript events associated with <code>Intro.js</code>.</p>
+<p>To use <code>rintrojs</code>, you need to call <code><a href="reference/introjsUI.html">introjsUI()</a></code> once in the UI. <code>rintrojs</code> supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with <code>introBox</code>, or dynamically generate your introduction using the <code>steps</code> option (see <a href="https://github.com/usablica/intro.js/wiki/Documentation">the Intro.js documentaion</a>). You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling <code><a href="reference/introjs.html">introjs(session)</a></code>. You can also specify options, and pass text as the body of javascript events associated with <code>Intro.js</code>.</p>
 <p>Here is an example with a static introduction, but with options, and events used.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rintrojs)
 <span class="kw">library</span>(shiny)
 
 <span class="co"># Define UI for application that draws a histogram</span>
 ui &lt;-<span class="st"> </span><span class="kw">shinyUI</span>(<span class="kw">fluidPage</span>(
-  <span class="kw"><a href="reference/introjs.html">introjsUI</a></span>(),
+  <span class="kw"><a href="reference/introjsUI.html">introjsUI</a></span>(),
   
   <span class="co"># Application title</span>
   <span class="kw"><a href="reference/introBox.html">introBox</a></span>(
@@ -139,7 +139,7 @@ server &lt;-<span class="st"> </span><span class="kw">shinyServer</span>(functio
 <span class="kw">library</span>(rintrojs)
 
 ui &lt;-<span class="st"> </span><span class="kw">shinyUI</span>(<span class="kw">fluidPage</span>(
-      <span class="kw"><a href="reference/introjs.html">introjsUI</a></span>(),
+      <span class="kw"><a href="reference/introjsUI.html">introjsUI</a></span>(),
       <span class="kw">mainPanel</span>(
         <span class="kw">textInput</span>(<span class="st">"intro"</span>,<span class="st">"Enter an introduction"</span>),
          <span class="kw">actionButton</span>(<span class="st">"btn"</span>,<span class="st">"Press me"</span>)
