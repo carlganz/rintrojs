@@ -1,0 +1,16 @@
+templates:
+  params:
+    bootswatch: cerulean
+
+reference:
+- title: UI functions
+  desc: Functions used in Shiny UI file
+  contents:
+  - introBox
+  - introjsUI
+- title: Server functions
+  desc: Functions used in Shiny server file
+  contents:
+  - introjs
+  - hintjs
+
