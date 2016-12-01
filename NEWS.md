@@ -1,4 +1,4 @@
-# rintrojs 0.1.1.900
+# rintrojs 0.1.2
 
 * Fix modules issue (Thanks @thercast and @klmr [#15](https://github.com/carlganz/rintrojs/issues/15))
 
