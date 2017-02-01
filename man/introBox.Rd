@@ -49,6 +49,5 @@ shinyApp(ui = ui, server = server)
 }
 }
 \seealso{
-\code{\link{introjsUI}} \code{\link{introjs}}
+\code{\link[=introjsUI]{introjsUI()}} \code{\link[=introjs]{introjs()}}
 }
-

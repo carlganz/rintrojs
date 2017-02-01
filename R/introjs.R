@@ -24,7 +24,7 @@
 #' @param options List of options to be passed to intro.js
 #' @param events List of text that are the body of a Javascript function
 #' @note For documentation on intro.js options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
-#' @seealso \code{\link{introjsUI}} \code{\link{introBox}}
+#' @seealso [introjsUI()] [introBox()]
 #' @examples
 #' \dontrun{
 #' library(rintrojs)
@@ -128,14 +128,14 @@ introjsUI <- function(includeOnly = FALSE) {
 
 #' Generate intro elements in UI
 #'
-#' Wrap \code{introBox} around elements you want to include in introduction.
+#' Wrap `introBox` around elements you want to include in introduction.
 #' Use data.step to order the boxes and data.intro to specify the comment in the introduction
 #'
 #' @param ... Elements in introduction element
 #' @param data.step a number indicating its spot in the order in the intro
 #' @param data.intro text for introduction
 #' @param data.hint text for clickable hints
-#' @seealso \code{\link{introjsUI}} \code{\link{introjs}}
+#' @seealso [introjsUI()] [introjs()]
 #' @examples
 #' \dontrun{
 #' library(rintrojs)
