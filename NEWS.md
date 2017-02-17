@@ -1,3 +1,9 @@
+# rintrojs 0.1.2.900
+
+* Fix issue with boolean introjs options (Thanks @leonawicz [#16](https://github.com/carlganz/rintrojs/issues/16))
+
+* Upgrade to Intro.js 2.4.0
+
 # rintrojs 0.1.2
 
 * Fix modules issue (Thanks @thercast and @klmr [#15](https://github.com/carlganz/rintrojs/issues/15))
