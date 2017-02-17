@@ -89,7 +89,7 @@ ui <- shinyUI(fluidPage(
 server <- shinyServer(function(input, output, session) {
   # initiate hints on startup with custom button and event
   hintjs(session, options = list("hintButtonLabel"="Hope this hint was helpful"),
-         events = list("onhintclose"='alert("Wasn\'t that hint helpful")'))
+         events = list("onhintclose"=I('alert("Wasn\'t that hint helpful")')))
   
   output$distPlot <- renderPlot({
     # generate bins based on input$bins from ui.R
@@ -108,7 +108,7 @@ server <- shinyServer(function(input, output, session) {
                introjs(session, options = list("nextLabel"="Onwards and Upwards",
                                                "prevLabel"="Did you forget something?",
                                                "skipLabel"="Don't be a quitter"),
-                                events = list("oncomplete"='alert("Glad that is over")'))
+                                events = list("oncomplete"=I('alert("Glad that is over")')))
   )
 })
 

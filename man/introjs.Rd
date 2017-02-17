@@ -14,7 +14,7 @@ hintjs(session, options = list(), events = list())
 
 \item{options}{List of options to be passed to intro.js}
 
-\item{events}{List of text that are the body of a Javascript function}
+\item{events}{List of text that are the body of a Javascript function. Must wrap in \code{\link[=I]{I()}}}
 }
 \description{
 Initiates an introduction via the intro.js library
