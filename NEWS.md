@@ -4,6 +4,10 @@
 
 * Upgrade to Intro.js 2.4.0
 
+## BREAKING CHANGES
+
+* Javascript code for events must now be wrapped by `I()`.
+
 # rintrojs 0.1.2
 
 * Fix modules issue (Thanks @thercast and @klmr [#15](https://github.com/carlganz/rintrojs/issues/15))
