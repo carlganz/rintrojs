@@ -2,7 +2,9 @@
 
 * Fix issue with boolean introjs options (Thanks @leonawicz [#16](https://github.com/carlganz/rintrojs/issues/16))
 
-* Upgrade to Intro.js 2.4.0
+* Upgrade to Intro.js 2.6.0
+
+* Add option to include Intro.js from CDN
 
 ## BREAKING CHANGES
 
