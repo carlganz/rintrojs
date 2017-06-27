@@ -6,6 +6,8 @@
 
 * Add option to include Intro.js from CDN
 
+* Add data.position parameter to `introBox`
+
 ## BREAKING CHANGES
 
 * Javascript code for events must now be wrapped by `I()`.
