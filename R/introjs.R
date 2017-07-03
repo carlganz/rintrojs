@@ -88,6 +88,7 @@ hintjs <- function(session,
 #'
 #' @param includeOnly Only include intro.js files. For users who will write their own javascript
 #' @param cdn Indicate whether to include intro.js files from CDN
+#' @param version Specify intro.js version to use from cdn
 #' @export
 #' @examples
 #' \dontrun{
@@ -109,16 +110,21 @@ hintjs <- function(session,
 #' )
 #' }
 
-introjsUI <- function(includeOnly = FALSE, cdn = FALSE) {
+introjsUI <- function(includeOnly = FALSE, cdn = FALSE, version = "2.5.0") {
+  if (!missing(version) && !cdn) {
+    warning("version parameter is ignored when cdn = FALSE")
+  }
   shiny::tags$head(shiny::singleton(
     shiny::tagList(
       shiny::includeScript(if (cdn) {
-        "https://cdn.jsdelivr.net/intro.js/2.5.0/intro.min.js"
+        paste0("https://cdn.jsdelivr.net/intro.js/",
+               version, "/intro.min.js")
       } else {
         system.file("javascript/introjs/intro.min.js", package = "rintrojs")
       }),
       shiny::includeCSS(if (cdn) {
-        "https://cdn.jsdelivr.net/intro.js/2.5.0/intro.min.css"
+        paste0("https://cdn.jsdelivr.net/intro.js/",
+               version, "/introjs.min.css")
       } else {
         system.file("javascript/introjs/introjs.min.css",
                     package = "rintrojs")
