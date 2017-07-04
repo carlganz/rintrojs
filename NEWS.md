@@ -1,4 +1,4 @@
-# rintrojs 0.1.2.900
+# rintrojs 0.2.0
 
 * Fix issue with boolean introjs options (Thanks @leonawicz [#16](https://github.com/carlganz/rintrojs/issues/16))
 
