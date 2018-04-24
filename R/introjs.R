@@ -70,9 +70,9 @@ introjs <- function(session,
   
 }
 
-#' Read a callback function into R
+#' Read a JS callback function into rintrojs
 #'
-#' Reads a file containing the body of a callback into R.
+#' Reads a JS callback function into rintrojs
 #'
 #' @param funname The name of the function you want to use. Options include:
 #' \describe{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/introjs.R
 \name{readCallback}
 \alias{readCallback}
-\title{Read a callback function into R}
+\title{Read a JS callback function into rintrojs}
 \usage{
 readCallback(funname = c("switchTabs"))
 }
@@ -22,7 +22,7 @@ Try running \code{shiny::runApp(system.file("examples/switchTabs.R",
 A string containing the body of a callback function
 }
 \description{
-Reads a file containing the body of a callback into R.
+Reads a JS callback function into rintrojs
 }
 \examples{
 \dontrun{
