@@ -71,53 +71,31 @@ introjs <- function(session,
 }
 
 #' Read a callback function into R
-#' 
+#'
 #' Reads a file containing the body of a callback into R.
-#' 
+#'
 #' @param funname The name of the function you want to use. Options include:
 #' \describe{
-#'   \item{switchTabs}{This function is intended to be passed to IntroJs's 
-#'   \href{https://introjs.com/docs/intro/api/#introjsonbeforechangeprovidedcallback}{onbeforechange method}. It will switch the currently active tab in your 
-#'   Shiny app to be the one containing the next element in your tour (this 
+#'   \item{switchTabs}{This function is intended to be passed to IntroJs's
+#'   \href{https://introjs.com/docs/intro/api/#introjsonbeforechangeprovidedcallback}{onbeforechange method}. It will switch the currently active tab in your
+#'   Shiny app to be the one containing the next element in your tour (this
 #'   function is called by IntroJs right before it moves to the next element).
-#'   Try running \code{shiny::runApp(system.file("examples/switchTabs.R", 
+#'   Try running \code{shiny::runApp(system.file("examples/switchTabs.R",
 #'   package = "rintrojs"))} to see an example.
 #'   }
 #' }
 #' @return A string containing the body of a callback function
 #' @export
-#' @examples 
+#' @examples
 #' \dontrun{
 #' introjs(session, events = list(onbeforechange = readCallback("switchTabs")))
 #' }
-readCallback <- function(funname) {
-  cdir <- system.file("javascript/callbacks", package = "rintrojs")
-  files <- list.files(cdir)
-  funs <- gsub("\\.js$", "", files)
-  if (!(funname %in% funs)) 
-    stop("There is no callback function named ", funname)
-  file <- list.files(cdir, full.names = TRUE)[funs == funname]
-  lines <- suppressWarnings(readLines(file(file)))
-  I(paste0(getJSfunBody(lines, funname), collapse = " "))
-}
-
-# function to get the body of a javascript function (i.e., a callback 
-# defined in inst/javascript/callbacks/). we could just write only the
-# function bodies in callbacks/, but i think it's easier to understand the 
-# functions if their params appear as well. note, getJSfunBody won't work
-# for single-line functions.
-getJSfunBody <- function(lines, funname) {
-  # drop single-line comments...not going to bother handling multi-line comments
-  noComments <- gsub("//.*", "", lines)
-  # drop line with method sig
-  notSigBool <- !grepl(
-    sprintf("function[[:space:]]{1,}%s\\(.*\\).*\\{", funname), 
-    noComments
-  )
-  noSig <- noComments[notSigBool]
-  # drop final closing bracket
-  onlybrack <- !grepl("[^[:space:]}]", noSig) & grepl("\\}", noSig)
-  noSig[-max(which(onlybrack))]
+readCallback <- function(funname = c("switchTabs")) {
+  funname <- match.arg(funname)
+  
+  switch(funname,
+         switchTabs = I("rintrojs.callback.switchTabs(targetElement)"))
+  
 }
 
 #' @rdname introjs
@@ -160,31 +138,36 @@ hintjs <- function(session,
 #' )
 #' }
 
-introjsUI <- function(includeOnly = FALSE, cdn = FALSE, version = "2.5.0") {
-  if (!missing(version) && !cdn) {
-    warning("version parameter is ignored when cdn = FALSE")
+introjsUI <-
+  function(includeOnly = FALSE,
+           cdn = FALSE,
+           version = "2.5.0") {
+    if (!missing(version) && !cdn) {
+      warning("version parameter is ignored when cdn = FALSE")
+    }
+    shiny::tags$head(shiny::singleton(
+      shiny::tagList(
+        shiny::includeScript(if (cdn) {
+          paste0("https://cdn.jsdelivr.net/intro.js/",
+                 version,
+                 "/intro.min.js")
+        } else {
+          system.file("javascript/introjs/intro.min.js", package = "rintrojs")
+        }),
+        shiny::includeCSS(if (cdn) {
+          paste0("https://cdn.jsdelivr.net/intro.js/",
+                 version,
+                 "/introjs.min.css")
+        } else {
+          system.file("javascript/introjs/introjs.min.css",
+                      package = "rintrojs")
+        }),
+        if (!includeOnly) {
+          shiny::includeScript(system.file("javascript/rintro.js", package = "rintrojs"))
+        }
+      )
+    ))
   }
-  shiny::tags$head(shiny::singleton(
-    shiny::tagList(
-      shiny::includeScript(if (cdn) {
-        paste0("https://cdn.jsdelivr.net/intro.js/",
-               version, "/intro.min.js")
-      } else {
-        system.file("javascript/introjs/intro.min.js", package = "rintrojs")
-      }),
-      shiny::includeCSS(if (cdn) {
-        paste0("https://cdn.jsdelivr.net/intro.js/",
-               version, "/introjs.min.css")
-      } else {
-        system.file("javascript/introjs/introjs.min.css",
-                    package = "rintrojs")
-      }),
-      if (!includeOnly) {
-        shiny::includeScript(system.file("javascript/rintro.js", package = "rintrojs"))
-      }
-    )
-  ))
-}
 
 #' Generate intro elements in UI
 #'
