@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • rintrojs</title>
+<title>Citation and Authors • rintrojs</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -22,13 +22,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
-<script src="../pkgdown.js"></script>
+<link href="pkgdown.css" rel="stylesheet">
+<script src="jquery.sticky-kit.min.js"></script>
+<script src="pkgdown.js"></script>
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Citation and Authors" />
 
 
 <!-- mathjax -->
@@ -43,7 +43,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-citation-authors">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -54,7 +54,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">rintrojs</a>
+        <a class="navbar-link" href="index.html">rintrojs</a>
         <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.1</span>
       </span>
     </div>
@@ -62,16 +62,16 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
+  <a href="index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -94,68 +94,44 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>Reference</h1>
+      <h1>Citation</h1>
     </div>
 
-    <table class="ref-index">
+    <p>Ganz C (2016).
+&ldquo;rintrojs: A Wrapper for the Intro.js Library.&rdquo;
+<em>Journal of Open Source Software</em>, <b>1</b>.
+<a href="http://dx.doi.org/10.21105/joss.00063">http://dx.doi.org/10.21105/joss.00063</a>. 
+</p>
+    <pre>@Article{,
+  title = {{rintrojs}: A Wrapper for the Intro.js Library},
+  author = {Carl Ganz},
+  journal = {Journal of Open Source Software},
+  publisher = {The Open Journal},
+  year = {2016},
+  volume = {1},
+  issue = {6},
+  month = {October},
+  url = {http://dx.doi.org/10.21105/joss.00063},
+}</pre>
+    <div class="page-header">
+      <h1>Authors</h1>
+    </div>
 
-    <colgroup>
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-ui-functions" class="hasAnchor"><a href="#section-ui-functions" class="anchor"></a>UI functions</h2>
-          <p class="section-desc"><p>Functions used in Shiny UI file</p></p>
-        </th>
-      </tr>
-      <tr>
-        <!--  -->
-        <td>
-          <p><code><a href="introBox.html">introBox()</a></code> </p>
-        </td>
-        <td><p>Generate intro elements in UI</p></td>
-      </tr><tr>
-        <!--  -->
-        <td>
-          <p><code><a href="introjsUI.html">introjsUI()</a></code> </p>
-        </td>
-        <td><p>Set up Shiny app to use intro.js</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-server-functions" class="hasAnchor"><a href="#section-server-functions" class="anchor"></a>Server functions</h2>
-          <p class="section-desc"><p>Functions used in Shiny server file</p></p>
-        </th>
-      </tr>
-      <tr>
-        <!--  -->
-        <td>
-          <p><code><a href="introjs.html">introjs()</a></code> <code><a href="introjs.html">hintjs()</a></code> </p>
-        </td>
-        <td><p>Initiate intro.js</p></td>
-      </tr><tr>
-        <!--  -->
-        <td>
-          <p><code><a href="readCallback.html">readCallback()</a></code> </p>
-        </td>
-        <td><p>Read a JS callback function into rintrojs</p></td>
-      </tr>
-    </tbody>
-    </table>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-ui-functions">UI functions</a></li>
-      <li><a href="#section-server-functions">Server functions</a></li>
+    <ul class="list-unstyled">
+      <li>
+        <p><strong>Carl Ganz</strong>. Author, maintainer. 
+        </p>
+      </li>
+      <li>
+        <p><strong>Afshin Mehrabani</strong>. Contributor, copyright holder. 
+        <br /><small>intro.js in javascript/introjs</small></p>
+      </li>
     </ul>
+
   </div>
+
 </div>
+
 
       <footer>
       <div class="copyright">

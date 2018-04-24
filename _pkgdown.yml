@@ -12,5 +12,6 @@ reference:
   desc: Functions used in Shiny server file
   contents:
   - introjs
+  - readCallback
   - hintjs
 
