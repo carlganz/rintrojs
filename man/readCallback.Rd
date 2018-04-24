@@ -4,7 +4,7 @@
 \alias{readCallback}
 \title{Read a callback function into R}
 \usage{
-readCallback(funname)
+readCallback(funname = c("switchTabs"))
 }
 \arguments{
 \item{funname}{The name of the function you want to use. Options include:
@@ -13,7 +13,7 @@ readCallback(funname)
 \href{https://introjs.com/docs/intro/api/#introjsonbeforechangeprovidedcallback}{onbeforechange method}. It will switch the currently active tab in your
 Shiny app to be the one containing the next element in your tour (this
 function is called by IntroJs right before it moves to the next element).
-Try running \code{shiny::runApp(system.file("examples/switchTabs.R", 
+Try running \code{shiny::runApp(system.file("examples/switchTabs.R",
   package = "rintrojs"))} to see an example.
 }
 }}
