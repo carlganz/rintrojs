@@ -4,9 +4,10 @@
 \alias{introBox}
 \title{Generate intro elements in UI}
 \usage{
-introBox(..., data.step, data.intro, data.hint, data.position = c("bottom",
-  "auto", "top", "left", "right", "bottom", "bottom-left_aligned",
-  "bottom-middle-aligned", "bottom-right-aligned", "auto"))
+introBox(..., data.step, data.intro, data.hint,
+  data.position = c("bottom", "auto", "top", "left", "right", "bottom",
+  "bottom-left_aligned", "bottom-middle-aligned", "bottom-right-aligned",
+  "auto"))
 }
 \arguments{
 \item{...}{Elements in introduction element}

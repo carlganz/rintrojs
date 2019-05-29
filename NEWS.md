@@ -1,3 +1,7 @@
+# rintrojs 0.2.2
+
+* Updated intro.js to 2.9.3
+
 # rintrojs 0.2.1
 
 * Add predefined JS callback that makes dealing with mutli-tab introjs much easier (Thanks @crew102 and @thercast [#30](https://github.com/carlganz/rintrojs/pull/30))

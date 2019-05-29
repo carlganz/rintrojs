@@ -1,12 +1,6 @@
-# First submission rintrojs 0.1.2
+# rintrojs 0.2.2
 
 ## Test environments
-
-Local OS X, R 3.3.1 (Also on Travis CI)
-
-Local Windows 10, R 3.3.1
-
-Local Ubuntu 12.04, R 3.3.1 (Also on Travis CI)
 
 All R-Hub platforms passed
 
@@ -14,6 +8,10 @@ All R-Hub platforms passed
 
 0 errors | 0 warnings | 0 notes
 
+## RevDeps
+
+No issues with reverse dependencies
+
 ## Changes
 
-- Fix bug with Shiny modules
+- Updated underlying Javascript library
