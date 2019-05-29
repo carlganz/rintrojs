@@ -1,15 +1,37 @@
 
-[![JOSS Status](http://joss.theoj.org/papers/10.21105/joss.00063/status.svg)](http://dx.doi.org/10.21105/joss.00063)[![Project Status: Active.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Build Status](https://travis-ci.org/carlganz/rintrojs.svg?branch=master)](https://travis-ci.org/carlganz/rintrojs)[![Coverage Status](https://img.shields.io/codecov/c/github/carlganz/rintrojs/master.svg)](https://codecov.io/github/carlganz/rintrojs?branch=master)[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/carlganz/rintrojs?branch=master&svg=true)](https://ci.appveyor.com/project/carlganz/rintrojs)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rintrojs)](https://cran.r-project.org/package=rintrojs)[![Licence](https://img.shields.io/badge/licence-AGPL--3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg)](https://cran.r-project.org/)
+[![JOSS
+Status](http://joss.theoj.org/papers/10.21105/joss.00063/status.svg)](http://dx.doi.org/10.21105/joss.00063)[![Project
+Status:
+Active.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Build
+Status](https://travis-ci.org/carlganz/rintrojs.svg?branch=master)](https://travis-ci.org/carlganz/rintrojs)[![Coverage
+Status](https://img.shields.io/codecov/c/github/carlganz/rintrojs/master.svg)](https://codecov.io/github/carlganz/rintrojs?branch=master)[![AppVeyor
+Build
+Status](https://ci.appveyor.com/api/projects/status/github/carlganz/rintrojs?branch=master&svg=true)](https://ci.appveyor.com/project/carlganz/rintrojs)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rintrojs)](https://cran.r-project.org/package=rintrojs)[![Licence](https://img.shields.io/badge/licence-AGPL--3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)[![minimal
+R
+version](https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg)](https://cran.r-project.org/)
 
-rintrojs
-========
+# rintrojs
 
-[R](https://r-project.org) was originally developed with the name S in the 70's as a glue language. Statisticians at Bell Labs needed an interactive environment for working with their C and Fortran scripts. Decades later, R is still a glue language, except instead of C and Fortran, it brings together C++, and JavaScript. With the advent of the [Shiny](http://shiny.rstudio.com/) package, R is now a popular platform for developing data-driven web applications. As Shiny increases in popularity so will the complexity of the Shiny apps built. In many instances, new-users will require guidance when they first use a Shiny application.
+[R](https://r-project.org) was originally developed with the name S in
+the 70’s as a glue language. Statisticians at Bell Labs needed an
+interactive environment for working with their C and Fortran scripts.
+Decades later, R is still a glue language, except instead of C and
+Fortran, it brings together C++, and JavaScript. With the advent of the
+[Shiny](http://shiny.rstudio.com/) package, R is now a popular platform
+for developing data-driven web applications. As Shiny increases in
+popularity so will the complexity of the Shiny apps built. In many
+instances, new-users will require guidance when they first use a Shiny
+application.
 
-Luckily, there is already a well established JavaScript library for this purpose. [Intro.js](http://introjs.com), written by Afshin Mehrabani, is a JavaScript library that helps integrate step-by-step introductions, and clickable hints into websites. The `rintrojs` R package integrates Intro.js into Shiny, so that users can easily add instructions to their application without having to use HTML, CSS, or JavaScript.
+Luckily, there is already a well established JavaScript library for this
+purpose. [Intro.js](http://introjs.com), written by Afshin Mehrabani, is
+a JavaScript library that helps integrate step-by-step introductions,
+and clickable hints into websites. The `rintrojs` R package integrates
+Intro.js into Shiny, so that users can easily add instructions to their
+application without having to use HTML, CSS, or JavaScript.
 
-Install
--------
+## Install
 
 `rintrojs` is available on CRAN:
 
@@ -17,18 +39,29 @@ Install
 install.packages("rintrojs")
 ```
 
-To access the bleeding-edge version, use `devtools` to install `rintrojs` from github:
+To access the bleeding-edge version, use `devtools` to install
+`rintrojs` from github:
 
 ``` r
 devtools::install_github("carlganz/rintrojs")
 ```
 
-Usage
------
+## Usage
 
-To use `rintrojs`, you need to call `introjsUI()` once in the UI. `rintrojs` supports both static and programmatic introductions meaning you can either wrap the elements you want to introduce with `introBox`, or dynamically generate your introduction using the `steps` option (see [the Intro.js documentaion](https://github.com/usablica/intro.js/wiki/Documentation)). You specify the order of the introduction with the data.step parameter, and you specify the content of the introduction with the data.intro parameter. You can initiate the introduction from the server by calling `introjs(session)`. You can also specify options, and pass text as the body of javascript events associated with `Intro.js`.
+To use `rintrojs`, you need to call `introjsUI()` once in the UI.
+`rintrojs` supports both static and programmatic introductions meaning
+you can either wrap the elements you want to introduce with `introBox`,
+or dynamically generate your introduction using the `steps` option (see
+[the Intro.js
+documentaion](https://github.com/usablica/intro.js/wiki/Documentation)).
+You specify the order of the introduction with the data.step parameter,
+and you specify the content of the introduction with the data.intro
+parameter. You can initiate the introduction from the server by calling
+`introjs(session)`. You can also specify options, and pass text as the
+body of javascript events associated with `Intro.js`.
 
-Here is an example with a static introduction, but with options, and events used.
+Here is an example with a static introduction, but with options, and
+events used.
 
 ``` r
 library(rintrojs)
@@ -143,11 +176,14 @@ server <- shinyServer(function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
-Click [here to view example.](https://carlganz.shinyapps.io/rintrojsexample/)
+Click [here to view
+example.](https://carlganz.shinyapps.io/rintrojsexample/)
 
-Contributing
-------------
+## Contributing
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of
+Conduct](https://github.com/carlganz/rintrojs/blob/master/CONDUCT.md).
+By participating in this project you agree to abide by its terms.
 
-If you find any problems or have any questions, please feel free to file an issue.
+If you find any problems or have any questions, please feel free to file
+an issue.

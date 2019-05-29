@@ -15,3 +15,5 @@ No issues with reverse dependencies
 ## Changes
 
 - Updated underlying Javascript library
+
+- Changed URL in readme to please CRAN
