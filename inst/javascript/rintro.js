@@ -14,7 +14,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Shiny.addCustomMessageHandler('introjs',function(options) {
-  introJs().setOptions(options.options).oncomplete(function() {
+  if (options.element == null) {
+    var intro = introJs();
+  } else {
+    var intro = introJs(options.element);
+  }
+  intro.setOptions(options.options).oncomplete(function() {
     options.events.hasOwnProperty("oncomplete") && eval(options.events.oncomplete[0]);
     }).onexit(function() {
       options.events.hasOwnProperty("onexit") && eval(options.events.onexit[0]);

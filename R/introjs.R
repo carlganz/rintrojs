@@ -23,6 +23,7 @@
 #' @param session the Shiny session object (from the server function of the Shiny app)
 #' @param options List of options to be passed to intro.js
 #' @param events List of text that are the body of a Javascript function. Must wrap in [I()]
+#' @param element Element to start the intro on
 #' @note For documentation on intro.js options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
 #' @seealso [introjsUI()] [introBox()]
 #' @examples
@@ -62,11 +63,12 @@
 
 introjs <- function(session,
                     options = list(),
-                    events = list()) {
-  options <- list(options = options, events = events)
+                    events = list(),
+                    element = NULL) {
+  options <- list(options = options, events = events, element = element)
   session$sendCustomMessage(type = "introjs",
                             message = jsonlite::toJSON(options,
-                                                       auto_unbox = TRUE))
+                                                       auto_unbox = TRUE, null = "null"))
   
 }
 
