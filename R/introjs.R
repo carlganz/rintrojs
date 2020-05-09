@@ -23,7 +23,7 @@
 #' @param session the Shiny session object (from the server function of the Shiny app)
 #' @param options List of options to be passed to intro.js
 #' @param events List of text that are the body of a Javascript function. Must wrap in [I()]
-#' @note For documentation on intro.js options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
+#' @note For documentation on intro.js options and events, see \url{https://introjs.com/docs/}.
 #' @seealso [introjsUI()] [introBox()]
 #' @examples
 #' \dontrun{
@@ -53,7 +53,7 @@
 #'   })
 #'   observeEvent(input$btn,
 #'                introjs(session, options = list("nextLabel"="Onwards and Upwards"),
-#'                                 events = list("oncomplete"='alert("It is over")')))
+#'                                 events = list("oncomplete"=I('alert("It is over")'))))
 #' })
 #' # Run the application
 #' shinyApp(ui = ui, server = server)
