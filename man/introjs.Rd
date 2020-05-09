@@ -20,7 +20,7 @@ hintjs(session, options = list(), events = list())
 Initiates an introduction via the intro.js library
 }
 \note{
-For documentation on intro.js options and events, see \url{https://github.com/usablica/intro.js/wiki/Documentation}.
+For documentation on intro.js options and events, see \url{https://introjs.com/docs/}.
 }
 \examples{
 \dontrun{
@@ -50,7 +50,7 @@ server <- shinyServer(function(input, output, session) {
   })
   observeEvent(input$btn,
                introjs(session, options = list("nextLabel"="Onwards and Upwards"),
-                                events = list("oncomplete"='alert("It is over")')))
+                                events = list("oncomplete"=I('alert("It is over")'))))
 })
 # Run the application
 shinyApp(ui = ui, server = server)
