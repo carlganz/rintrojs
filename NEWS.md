@@ -1,3 +1,7 @@
+# rintrojs 0.3.0
+
+* Updated intro.js to 3.2.1
+
 # rintrojs 0.2.2
 
 * Updated intro.js to 2.9.3
