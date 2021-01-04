@@ -63,7 +63,23 @@
 introjs <- function(session,
                     options = list(),
                     events = list()) {
+  
   options <- list(options = options, events = events)
+  
+  if (is.null(options$events$onafterchange)) {
+    options$events$onafterchange <- I("setTimeout(function(){
+          MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
+        }, 400);")
+  } else {
+    options$events$onafterchange <- I(paste(
+      options$events$onafterchange,
+      "; setTimeout(function(){
+          MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
+        }, 400);",
+      collapse = ""
+    ))
+  }
+  
   session$sendCustomMessage(type = "introjs",
                             message = jsonlite::toJSON(options,
                                                        auto_unbox = TRUE))
