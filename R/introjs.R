@@ -63,7 +63,9 @@
 introjs <- function(session,
                     options = list(),
                     events = list()) {
+  
   options <- list(options = options, events = events)
+  
   session$sendCustomMessage(type = "introjs",
                             message = jsonlite::toJSON(options,
                                                        auto_unbox = TRUE))
