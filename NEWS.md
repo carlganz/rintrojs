@@ -1,6 +1,8 @@
-# rintrojs 0.2.3
+# rintrojs 0.3.0
 
 * Added support of MathJax in tour steps ([#39](https://github.com/carlganz/rintrojs/issues/39), [#50](https://github.com/carlganz/rintrojs/pull/50))
+
+* Updated intro.js to 3.2.1
 
 # rintrojs 0.2.2
 

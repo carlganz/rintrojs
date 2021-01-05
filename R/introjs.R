@@ -143,23 +143,23 @@ hintjs <- function(session,
 introjsUI <-
   function(includeOnly = FALSE,
            cdn = FALSE,
-           version = "2.5.0") {
+           version = "3.2.1") {
     if (!missing(version) && !cdn) {
       warning("version parameter is ignored when cdn = FALSE")
     }
     shiny::tags$head(shiny::singleton(
       shiny::tagList(
         shiny::includeScript(if (cdn) {
-          paste0("https://cdn.jsdelivr.net/intro.js/",
+          paste0("https://cdn.jsdelivr.net/intro.js@",
                  version,
-                 "/intro.min.js")
+                 "/minified/intro.min.js")
         } else {
           system.file("javascript/introjs/intro.min.js", package = "rintrojs")
         }),
         shiny::includeCSS(if (cdn) {
-          paste0("https://cdn.jsdelivr.net/intro.js/",
+          paste0("https://cdn.jsdelivr.net/intro.js@",
                  version,
-                 "/introjs.min.css")
+                 "/minified/introjs.min.css")
         } else {
           system.file("javascript/introjs/introjs.min.css",
                       package = "rintrojs")
