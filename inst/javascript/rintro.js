@@ -16,15 +16,18 @@
 Shiny.addCustomMessageHandler('introjs',function(options) {
   introJs().setOptions(options.options).oncomplete(function() {
     options.events.hasOwnProperty("oncomplete") && eval(options.events.oncomplete[0]);
-    }).onexit(function() {
-      options.events.hasOwnProperty("onexit") && eval(options.events.onexit[0]);
-      }).onchange(function(targetElement) {
-        options.events.hasOwnProperty("onchange") && eval(options.events.onchange[0]);
-        }).onbeforechange(function(targetElement) {
-          options.events.hasOwnProperty("onbeforechange") && eval(options.events.onbeforechange[0]);
-          }).onafterchange(function(targetElement) {
-            options.events.hasOwnProperty("onafterchange") && eval(options.events.onafterchange[0]);
-            }).start();
+  }).onexit(function() {
+    options.events.hasOwnProperty("onexit") && eval(options.events.onexit[0]);
+  }).onchange(function(targetElement) {
+    options.events.hasOwnProperty("onchange") && eval(options.events.onchange[0]);
+  }).onbeforechange(function(targetElement) {
+    options.events.hasOwnProperty("onbeforechange") && eval(options.events.onbeforechange[0]);
+  }).onafterchange(function(targetElement) {
+    options.events.hasOwnProperty("onafterchange") && eval(options.events.onafterchange[0]);
+    if (window.MathJax) {setTimeout(function(){
+        MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
+     }, 400);}
+  }).start();
 });
 
 Shiny.addCustomMessageHandler('hintjs',function(options) {
