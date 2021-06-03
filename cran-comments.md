@@ -1,4 +1,4 @@
-# rintrojs 0.2.2
+# rintrojs 0.3.0
 
 ## Test environments
 
@@ -16,4 +16,6 @@ No issues with reverse dependencies
 
 - Updated underlying Javascript library
 
-- Changed URL in readme to please CRAN
+- Improved Javascript code to support MathJax
+
+- Added credit to contributors in Readme
