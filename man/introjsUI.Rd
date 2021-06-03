@@ -4,7 +4,7 @@
 \alias{introjsUI}
 \title{Set up Shiny app to use intro.js}
 \usage{
-introjsUI(includeOnly = FALSE, cdn = FALSE, version = "2.5.0")
+introjsUI(includeOnly = FALSE, cdn = FALSE, version = "3.2.1")
 }
 \arguments{
 \item{includeOnly}{Only include intro.js files. For users who will write their own javascript}
