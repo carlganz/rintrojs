@@ -50,7 +50,7 @@ rintrojs = function() {
         // element if the node contains the upcoming target element 
         for (i = 0; i < tabpanes.length; i++) {
           if (tabpanes[i].contains(targetElement)) {
-            var selector = "a[href = \"#" + tabpanes[i].id + "\"]";
+            var selector = "a[data-value = \"" + tabpanes.item(i).getAttribute("data-value") + "\"]";
             document.querySelector(selector).click();
           }
         }
