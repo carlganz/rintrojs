@@ -12,3 +12,5 @@
 ^CONDUCT\.md$
 ^_pkgdown\.yml$
 ^user2017
+^revdep
+^CRAN-RELEASE$

@@ -9,11 +9,11 @@ citEntry(entry = "Article",
   volume       = "1",
   issue        = "6",
   month        = "October",
-  url          = "http://dx.doi.org/10.21105/joss.00063",
+  url          = "https://dx.doi.org/10.21105/joss.00063",
 
   textVersion  =
   paste("Carl Ganz (2016).",
         "rintrojs: A Wrapper for the Intro.js Library.",
         "Journal of Open Source Software, 1(6), October 2016.",
-        "URL http://dx.doi.org/10.21105/joss.00063")
+        "URL https://dx.doi.org/10.21105/joss.00063")
 )

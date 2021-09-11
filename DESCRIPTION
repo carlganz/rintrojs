@@ -6,12 +6,11 @@ Authors@R: c(
   person("Carl", "Ganz", email = "carlganz@gmail.com", role = c("aut", "cre")),
   person("Afshin", "Mehrabani", role = c("ctb","cph"), comment = "intro.js in javascript/introjs")
   )
-Description: A wrapper for the 'Intro.js' library (For more info: <http://www.introjs.com>). 
+Description: A wrapper for the 'Intro.js' library (For more info: <https://introjs.com/>). 
   This package makes it easy to include step-by-step introductions, and clickable hints in a 'Shiny' 
   application. It supports both static introductions in the UI, and programmatic introductions from 
   the server-side. 
 License: AGPL-3
-LazyData: TRUE
 Imports: shiny, jsonlite
 Depends: R (>= 3.0.0)
 RoxygenNote: 7.1.1

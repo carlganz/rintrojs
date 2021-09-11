@@ -1,8 +1,8 @@
 
 [![JOSS
-Status](http://joss.theoj.org/papers/10.21105/joss.00063/status.svg)](http://dx.doi.org/10.21105/joss.00063)[![Project
+Status](https://joss.theoj.org/papers/10.21105/joss.00063/status.svg)](https://dx.doi.org/10.21105/joss.00063)[![Project
 Status:
-Active.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Build
 Status](https://travis-ci.org/carlganz/rintrojs.svg?branch=master)](https://travis-ci.org/carlganz/rintrojs)[![Coverage
 Status](https://img.shields.io/codecov/c/github/carlganz/rintrojs/master.svg)](https://codecov.io/github/carlganz/rintrojs?branch=master)[![AppVeyor
@@ -13,23 +13,24 @@ version](https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg)](https://cran.r-
 
 # rintrojs
 
-[R](https://r-project.org) was originally developed with the name S in
-the 70’s as a glue language. Statisticians at Bell Labs needed an
+[R](https://www.r-project.org/) was originally developed with the name S
+in the 70’s as a glue language. Statisticians at Bell Labs needed an
 interactive environment for working with their C and Fortran scripts.
 Decades later, R is still a glue language, except instead of C and
 Fortran, it brings together C++, and JavaScript. With the advent of the
-[Shiny](http://shiny.rstudio.com/) package, R is now a popular platform
+[Shiny](https://shiny.rstudio.com/) package, R is now a popular platform
 for developing data-driven web applications. As Shiny increases in
 popularity so will the complexity of the Shiny apps built. In many
 instances, new-users will require guidance when they first use a Shiny
 application.
 
 Luckily, there is already a well established JavaScript library for this
-purpose. [Intro.js](http://introjs.com), written by Afshin Mehrabani, is
-a JavaScript library that helps integrate step-by-step introductions,
-and clickable hints into websites. The `rintrojs` R package integrates
-Intro.js into Shiny, so that users can easily add instructions to their
-application without having to use HTML, CSS, or JavaScript.
+purpose. [Intro.js](https://introjs.com/), written by Afshin
+Mehrabani, is a JavaScript library that helps integrate step-by-step
+introductions, and clickable hints into websites. The `rintrojs` R
+package integrates Intro.js into Shiny, so that users can easily add
+instructions to their application without having to use HTML, CSS, or
+JavaScript.
 
 ## Install
 
