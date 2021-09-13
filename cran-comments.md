@@ -1,4 +1,4 @@
-# rintrojs 0.3.0
+# rintrojs 0.3.1
 
 ## Test environments
 
@@ -14,8 +14,4 @@ No issues with reverse dependencies
 
 ## Changes
 
-- Updated underlying Javascript library
-
-- Improved Javascript code to support MathJax
-
-- Added credit to contributors in Readme
+- Fixed edge case in JavaScript

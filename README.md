@@ -3,11 +3,7 @@
 Status](https://joss.theoj.org/papers/10.21105/joss.00063/status.svg)](https://dx.doi.org/10.21105/joss.00063)[![Project
 Status:
 Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Build
-Status](https://travis-ci.org/carlganz/rintrojs.svg?branch=master)](https://travis-ci.org/carlganz/rintrojs)[![Coverage
-Status](https://img.shields.io/codecov/c/github/carlganz/rintrojs/master.svg)](https://codecov.io/github/carlganz/rintrojs?branch=master)[![AppVeyor
-Build
-Status](https://ci.appveyor.com/api/projects/status/github/carlganz/rintrojs?branch=master&svg=true)](https://ci.appveyor.com/project/carlganz/rintrojs)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rintrojs)](https://cran.r-project.org/package=rintrojs)[![Licence](https://img.shields.io/badge/licence-AGPL--3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)[![minimal
+[![R-CMD-check](https://github.com/carlganz/rintrojs/workflows/R-CMD-check/badge.svg)](https://github.com/carlganz/rintrojs/actions)[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/rintrojs)](https://cran.r-project.org/package=rintrojs)[![Licence](https://img.shields.io/badge/licence-AGPL--3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)[![minimal
 R
 version](https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg)](https://cran.r-project.org/)
 
@@ -25,12 +21,11 @@ instances, new-users will require guidance when they first use a Shiny
 application.
 
 Luckily, there is already a well established JavaScript library for this
-purpose. [Intro.js](https://introjs.com/), written by Afshin
-Mehrabani, is a JavaScript library that helps integrate step-by-step
-introductions, and clickable hints into websites. The `rintrojs` R
-package integrates Intro.js into Shiny, so that users can easily add
-instructions to their application without having to use HTML, CSS, or
-JavaScript.
+purpose. [Intro.js](https://introjs.com/), written by Afshin Mehrabani,
+is a JavaScript library that helps integrate step-by-step introductions,
+and clickable hints into websites. The `rintrojs` R package integrates
+Intro.js into Shiny, so that users can easily add instructions to their
+application without having to use HTML, CSS, or JavaScript.
 
 ## Install
 

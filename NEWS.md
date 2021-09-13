@@ -1,6 +1,8 @@
 # rintrojs 0.3.1
 
-* Use different html attribute to identify tabPanels in jQuery, which fixes issue in #38 (Thanks @vaelliot @jsinnett and anybody else who had to deal with this issue)
+* Use different html attribute to identify tabPanels in jQuery, which fixes issue in #38 (Thanks @vaelliot @jsinnett)
+
+* Use Github Actions for CI
 
 # rintrojs 0.3.0
 
