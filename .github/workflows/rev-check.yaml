@@ -1,0 +1,77 @@
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * * '
+
+name: rev-check
+
+jobs:
+  rev-check:
+    runs-on: ${{ matrix.config.os }}
+
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macOS-latest, r: 'release'}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Checkout your package
+        uses: actions/checkout@v2
+        with:
+          path: package
+          # change the repo below to yours
+          repository: carlganz/rintrojs
+          # ref: master
+
+      - name: Clean up .Renviron
+        run: |
+          sed -i '' /R_LIBS_USER/d .Renviron
+
+      - uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: ${{ matrix.config.r }}
+
+      - uses: r-lib/actions/setup-tinytex@v1
+        env:
+          TINYTEX_INSTALLER: TinyTeX
+
+      - name: Query dependencies
+        run: |
+          Rscript R/deps.R
+
+      - name: Cache R packages
+        if: runner.os != 'Windows'
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/versions.csv') }}
+          restore-keys: ${{ runner.os }}-
+
+      - name: Install system dependencies
+        if: runner.os == 'macOS'
+        run: |
+          brew install --cask xquartz
+          sh install-sysreqs.sh || true
+
+      - name: Check reverse dependencies
+        run: |
+          Rscript R/setup.R
+          Rscript R/revcheck.R
+
+      - name: Upload check results
+        uses: actions/upload-artifact@main
+        if: failure()
+        with:
+          name: ${{ runner.os }}-rev-check-results
+          if-no-files-found: ignore
+          path: |
+            00check_diffs.html
+            *.Rcheck
+            *.Rcheck2
