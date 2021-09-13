@@ -4,6 +4,8 @@
 
 * Use Github Actions for CI
 
+* Update jQuery selector to require data-value attribute in case users use tab-pane class in unexpected ways
+
 # rintrojs 0.3.0
 
 * Added support of MathJax in tour steps ([#39](https://github.com/carlganz/rintrojs/issues/39), [#50](https://github.com/carlganz/rintrojs/pull/50)) (Thanks @etiennebacher)
