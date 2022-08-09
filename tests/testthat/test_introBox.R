@@ -3,12 +3,11 @@ library(rintrojs)
 library(testthat)
 library(shiny)
 
-target <- singleton(
-  tags$div(
+target <- tags$div(
     actionButton("one","one"),
     actionButton("two","two"),
     `data-step` = 1,
-    `data-intro` = "This is step one"))
+    `data-intro` = "This is step one")
 
 attempt <- introBox(actionButton("one","one"),
                     actionButton("two","two"),
@@ -19,11 +18,10 @@ test_that("introBox takes two elements, a data-step, and a data-intro",{
   expect_identical(attempt, target)
 })
 
-target <- singleton(
-  tags$div(
+target <- tags$div(
     actionButton("one","one"),
     actionButton("two","two"),
-    `data-hint` = "This is a hint"))
+    `data-hint` = "This is a hint")
 
 attempt <- introBox(actionButton("one","one"),
                     actionButton("two","two"),
@@ -33,13 +31,12 @@ test_that("introBox takes two elements, and a data-hint",{
   expect_identical(attempt, target)
 })
 
-target <- singleton(
-  tags$div(
+target <- tags$div(
     actionButton("one","one"),
     actionButton("two","two"),
     `data-step` = 1,
     `data-intro` = "This is step one",
-    `data-hint` = "This is a hint"))
+    `data-hint` = "This is a hint")
 
 attempt <- introBox(actionButton("one","one"),
                     actionButton("two","two"),

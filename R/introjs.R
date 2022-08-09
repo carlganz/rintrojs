@@ -244,6 +244,6 @@ introBox <-
       gsub("\\.", "-", names(data)[-seq_len(n)])
     data[[1]] <- quote(shiny::tags$div)
     # http://stackoverflow.com/a/40180906/4564432
-    shiny::singleton(eval.parent(data))
+    eval.parent(data)
     
   }

@@ -1,3 +1,7 @@
+# rintrojs 0.3.2
+
+* Fix improper use of `shiny::singleton` fixes #54 (Thanks @gregleleu @zagrebmukerjee)
+
 # rintrojs 0.3.1
 
 * Use different html attribute to identify tabPanels in jQuery, which fixes issue in #38 (Thanks @vaelliot @jsinnett)

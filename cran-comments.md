@@ -1,4 +1,4 @@
-# rintrojs 0.3.1
+# rintrojs 0.3.2
 
 ## Test environments
 
@@ -14,4 +14,4 @@ No issues with reverse dependencies
 
 ## Changes
 
-- Fixed edge case in JavaScript
+- Fixed issue with use of shiny::singleton
