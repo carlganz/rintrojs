@@ -14,7 +14,7 @@ in the 70’s as a glue language. Statisticians at Bell Labs needed an
 interactive environment for working with their C and Fortran scripts.
 Decades later, R is still a glue language, except instead of C and
 Fortran, it brings together C++, and JavaScript. With the advent of the
-[Shiny](https://shiny.rstudio.com/) package, R is now a popular platform
+[Shiny](https://shiny.posit.co/) package, R is now a popular platform
 for developing data-driven web applications. As Shiny increases in
 popularity so will the complexity of the Shiny apps built. In many
 instances, new-users will require guidance when they first use a Shiny
