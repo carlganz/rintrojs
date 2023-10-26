@@ -165,7 +165,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://www.getgoodtree.com"><b>Carl Ganz</b></a><br /></td>
+    <td align="center"><a href="https://www.ribbitev.com"><b>Carl Ganz</b></a><br /></td>
     <td align="center"><a href="https://github.com/afshinm"><b>Afshin Mehrabani</b></a><br /></td>
     <td align="center"><a href="https://github.com/etiennebacher"><b>Etienne Bacher</b></a><br /></td>
     <td align="center"><a href="https://github.com/mvanbommel"><b>Matthew van Bommel</b></a><br /></td>

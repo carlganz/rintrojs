@@ -1,3 +1,9 @@
+# rintrojs 0.3.3
+
+* Add ORCID to DESCRIPTION
+
+* Update personal URL in readme
+
 # rintrojs 0.3.2
 
 * Fix improper use of `shiny::singleton` fixes #54 (Thanks @gregleleu @zagrebmukerjee)
