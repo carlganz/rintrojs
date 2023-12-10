@@ -195,7 +195,7 @@ key](https://allcontributors.org/docs/en/emoji-key)):
 <table>
 <tr>
 <td align="center">
-<a href="https://www.ribbitev.com"><b>Carl Ganz</b></a><br />
+<a href="https://www.carlganz.com"><b>Carl Ganz</b></a><br />
 </td>
 <td align="center">
 <a href="https://github.com/afshinm"><b>Afshin Mehrabani</b></a><br />
