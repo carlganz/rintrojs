@@ -145,7 +145,7 @@ introjsUI <-
            cdn = FALSE,
            version = "3.2.1") {
     if (!missing(version) && !cdn) {
-      warning("version parameter is ignored when cdn = FALSE")
+      warningf("Version parameter is ignored when cdn = FALSE")
     }
     shiny::tags$head(shiny::singleton(
       shiny::tagList(
@@ -229,12 +229,14 @@ introBox <-
              "bottom-right-aligned",
              "auto"
            )) {
-    stopifnot(!((
+    if ((
       !missing(data.step) &
-        missing(data.intro)
+      missing(data.intro)
     ) | (
       missing(data.step) & !missing(data.intro)
-    )))
+    )) {
+      stopf("Must include data step and data intro")
+    }
     
     data.position <- match.arg(data.position)
     
@@ -247,3 +249,18 @@ introBox <-
     eval.parent(data)
     
   }
+
+warningf <- function(fmt, ..., immediate. = FALSE, noBreaks. = FALSE) {
+  msg <- gettextf(fmt, ..., domain = "R-rintrojs")
+  warning(msg,
+          domain = NA,
+          call. = FALSE,
+          immediate. = immediate.,
+          noBreaks. = noBreaks.
+  )
+}
+
+stopf <- function(fmt, ...) {
+  msg <- gettextf(fmt, ..., domain = "R-rintrojs")
+  stop(msg, domain = NA, call. = FALSE)
+}
