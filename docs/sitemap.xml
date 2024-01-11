@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>/404.html</loc>
+  </url>
+  <url>
+    <loc>/CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>/authors.html</loc>
+  </url>
+  <url>
+    <loc>/index.html</loc>
+  </url>
+  <url>
+    <loc>/news/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/introBox.html</loc>
+  </url>
+  <url>
+    <loc>/reference/introjs.html</loc>
+  </url>
+  <url>
+    <loc>/reference/introjsUI.html</loc>
+  </url>
+  <url>
+    <loc>/reference/readCallback.html</loc>
+  </url>
+</urlset>
