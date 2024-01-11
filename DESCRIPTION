@@ -14,7 +14,7 @@ License: AGPL-3
 Imports: shiny, jsonlite
 Depends: R (>= 3.0.0)
 RoxygenNote: 7.2.3
-URL: https://github.com/carlganz/rintrojs
+URL: https://github.com/carlganz/rintrojs, http://rintrojs.carlganz.com
 BugReports: https://github.com/carlganz/rintrojs/issues
 Suggests: testthat,
     covr

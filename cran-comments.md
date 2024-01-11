@@ -1,4 +1,4 @@
-# rintrojs 0.3.2
+# rintrojs 0.3.4
 
 ## Test environments
 
@@ -14,4 +14,4 @@ No issues with reverse dependencies
 
 ## Changes
 
-- Fixed issue with use of shiny::singleton
+- Experimening with using `potools` package to provide translated error messages and warnings. 
