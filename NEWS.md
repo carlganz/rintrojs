@@ -1,3 +1,7 @@
+# rintrojs 0.3.4
+
+* Use `potools` to add Spanish translations for error and warning messages
+
 # rintrojs 0.3.3
 
 * Add ORCID to DESCRIPTION
